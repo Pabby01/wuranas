@@ -7,41 +7,45 @@ import Container from 'components/Container';
 import OverTitle from 'components/OverTitle';
 import { useNewsletterModalContext } from 'contexts/newsletter-modal.context';
 import { media } from 'utils/media';
+import ArtisanCarousel from 'components/ArtisanCarousel';
 
 
 export default function Hero() {
   const { setIsModalOpened } = useNewsletterModalContext();
 
   return (
-    <HeroWrapper>
-      <Contents>
-        <CustomOverTitle>Book artisans in seconds—secure, on‑chain, and low‑fee on Solana.</CustomOverTitle>
-        <Heading>"Empower your projects with frictionless artisan services on Solana"</Heading>
-        <Description>
-        Wurana is a Solana‑powered decentralized marketplace connecting skilled artisans with clients—facilitating secure on‑chain escrow and NFT‑backed reputations for instant trust. <br />
+    <>
+      <HeroWrapper>
+        <Contents>
+          <CustomOverTitle>Book artisans in seconds—secure, on‑chain, and low‑fee on Solana.</CustomOverTitle>
+          <Heading>"Empower your projects with frictionless artisan services on Solana"</Heading>
+          <Description>
+          Wurana is a Solana‑powered decentralized marketplace connecting skilled artisans with clients—facilitating secure on‑chain escrow and NFT‑backed reputations for instant trust. <br />
 Enjoy seamless service booking with sub‑cent transaction fees, an intuitive UI for both clients and providers, and a unified dashboard that simplifies every step. <br />
-        </Description>
-        <CustomButtonGroup>
-          <Button onClick={() => setIsModalOpened(true)}>
-            Subscribe to the newsletter <span>&rarr;</span>
-          </Button>
-          <NextLink href="#whitepaper" passHref>
-            <Button transparent>
-              Features <span>&rarr;</span>
+          </Description>
+          <CustomButtonGroup>
+            <Button onClick={() => setIsModalOpened(true)}>
+              Subscribe to the newsletter <span>&rarr;</span>
             </Button>
-          </NextLink>
-        </CustomButtonGroup>
-      </Contents>
-      <ImageContainer>
-        <StyledImage
-          src="/wura/art.jpg"
-          alt="Wurana-artisan"
-          width={500}
-          height={700}
-          priority
-        />
-      </ImageContainer>
-    </HeroWrapper>
+            <NextLink href="#whitepaper" passHref>
+              <Button transparent>
+                Features <span>&rarr;</span>
+              </Button>
+            </NextLink>
+          </CustomButtonGroup>
+        </Contents>
+        <ImageContainer>
+          <StyledImage
+            src="/wura/art.jpg"
+            alt="Wurana-artisan"
+            width={500}
+            height={700}
+            priority
+          />
+        </ImageContainer>
+      </HeroWrapper>
+      <ArtisanCarousel />
+    </>
   );
 }
 
