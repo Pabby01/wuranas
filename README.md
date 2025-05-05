@@ -75,7 +75,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## 📞 Contact
 
-Project Link: [https://github.com/yourusername/wurana](https://github.com/yourusername/wurana)
+Project Link: [https://github.com/pabby01/wurana](https://github.com/pabby01/wurana)
 
 ---
 
