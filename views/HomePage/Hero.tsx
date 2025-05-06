@@ -8,6 +8,7 @@ import OverTitle from 'components/OverTitle';
 import { useNewsletterModalContext } from 'contexts/newsletter-modal.context';
 import { media } from 'utils/media';
 import ArtisanCarousel from 'components/ArtisanCarousel';
+import WaitlistForm from 'components/WaitlistForm';
 
 
 export default function Hero() {
@@ -24,12 +25,14 @@ export default function Hero() {
 Enjoy seamless service booking with sub‑cent transaction fees, an intuitive UI for both clients and providers, and a unified dashboard that simplifies every step. <br />
           </Description>
           <CustomButtonGroup>
-            <Button onClick={() => setIsModalOpened(true)}>
-              Subscribe to the newsletter <span>&rarr;</span>
-            </Button>
+            <NextLink href="/waitlist" passHref>
+              <Button>
+                Join the Waitlist <span>&rarr;</span>
+              </Button>
+            </NextLink>
             <NextLink href="#whitepaper" passHref>
               <Button transparent>
-                Features <span>&rarr;</span>
+                Get Started <span>&rarr;</span>
               </Button>
             </NextLink>
           </CustomButtonGroup>
