@@ -1,4 +1,5 @@
-import { IconBrandDiscord, IconBrandFacebook, IconBrandLinkedin, IconBrandTwitter } from '@tabler/icons-react';
+/* eslint-disable sort-imports */
+import { IconBrandDiscord, IconBrandFacebook, IconBrandGithub, IconBrandLinkedin, IconBrandInstagram, IconBrandTwitter } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
 import NextLink from 'next/link';
 import styled from 'styled-components';
@@ -14,35 +15,36 @@ const footerItems: FooterItems = [
   {
     title: 'Company',
     items: [
+      { title: 'About Us', href: '/about' },
       { title: 'Privacy Policy', href: '/privacy-policy' },
-      { title: 'Cookies Policy', href: '/cookies-policy' },
+      { title: 'Terms of Service', href: '/terms' },
     ],
   },
   {
-    title: 'Product',
+    title: 'Platform',
     items: [
-      { title: 'Features', href: '/features' },
-      { title: 'Something', href: '/something' },
-      { title: 'Something else', href: '/something-else' },
-      { title: 'And something else', href: '/and-something-else' },
+      { title: 'Marketplace', href: '/marketplace' },
+      { title: 'Become an Artisan', href: '/become-artisan' },
+      { title: 'How It Works', href: '/how-it-works' },
+      { title: 'Escrow Service', href: '/features/escrow' },
     ],
   },
   {
-    title: 'Knowledge',
+    title: 'Resources',
     items: [
       { title: 'Blog', href: '/blog' },
-      { title: 'Contact', href: '/contact' },
+      { title: 'Artisan Guide', href: '/artisan-guide' },
       { title: 'FAQ', href: '/faq' },
-      { title: 'Help Center', href: '/help-center' },
+      { title: 'Support', href: '/support' },
     ],
   },
   {
-    title: 'Something',
+    title: 'Community',
     items: [
-      { title: 'Features2', href: '/features2' },
-      { title: 'Something2', href: '/something2' },
-      { title: 'Something else2', href: '/something-else2' },
-      { title: 'And something else2', href: '/and-something-else2' },
+      { title: 'Discord', href: 'https://discord.gg/wurana' },
+      { title: 'Twitter', href: 'https://twitter.com/wuranaapp' },
+      { title: 'Documentation', href: '/docs' },
+      { title: 'Roadmap', href: '/roadmap' },
     ],
   },
 ];
@@ -72,23 +74,7 @@ export default function Footer() {
           ))}
         </ListContainer>
         <BottomBar>
-          <ShareBar>
-            <SocialLink href="https://twitter.com/my-saas-startup" as={motion.a} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <IconBrandTwitter size={32} stroke={1.5} />
-            </SocialLink>
-
-            <SocialLink href="https://facebook.com/my-saas-startup" as={motion.a} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <IconBrandFacebook size={32} stroke={1.5} />
-            </SocialLink>
-
-            <SocialLink href="https://linkedin.com/my-saas-startup" as={motion.a} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <IconBrandLinkedin size={32} stroke={1.5} />
-            </SocialLink>
-
-            <SocialLink href="https://discord.com/my-saas-startup" as={motion.a} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
-              <IconBrandDiscord size={32} stroke={1.5} />
-            </SocialLink>
-          </ShareBar>
+          <SocialLinks />
           <Copyright as={motion.p} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
             &copy; Copyright 2025 Wurana
           </Copyright>
@@ -120,6 +106,65 @@ function ListItem({ title, href }: SingleFooterListItem) {
     </ListItemWrapper>
   );
 }
+
+const SocialLinks = () => (
+  <ShareBar>
+    <SocialLink 
+      href="https://twitter.com/wuranaapp" 
+      target="_blank"
+      rel="noopener noreferrer"
+      as={motion.a} 
+      whileHover={{ scale: 1.1 }} 
+      whileTap={{ scale: 0.95 }}
+    >
+      <IconBrandTwitter size={24} stroke={2} />
+    </SocialLink>
+
+    <SocialLink 
+      href="https://discord.gg/wurana" 
+      target="_blank"
+      rel="noopener noreferrer"
+      as={motion.a} 
+      whileHover={{ scale: 1.1 }} 
+      whileTap={{ scale: 0.95 }}
+    >
+      <IconBrandDiscord size={24} stroke={2} />
+    </SocialLink>
+
+    <SocialLink 
+      href="https://github.com/wurana" 
+      target="_blank"
+      rel="noopener noreferrer"
+      as={motion.a} 
+      whileHover={{ scale: 1.1 }} 
+      whileTap={{ scale: 0.95 }}
+    >
+      <IconBrandGithub size={24} stroke={2} />
+    </SocialLink>
+
+    <SocialLink 
+      href="https://twitter.com/wuranaapp" 
+      target="_blank"
+      rel="noopener noreferrer"
+      as={motion.a} 
+      whileHover={{ scale: 1.1 }} 
+      whileTap={{ scale: 0.95 }}
+    >
+      <IconBrandTwitter size={24} stroke={2} color="black" />
+    </SocialLink>
+
+     <SocialLink 
+      href="https://instagram.com/wuranaapp" 
+      target="_blank"
+      rel="noopener noreferrer"
+      as={motion.a} 
+      whileHover={{ scale: 1.1 }} 
+      whileTap={{ scale: 0.95 }}
+    >
+      <IconBrandInstagram size={24} stroke={2} color="black" />
+    </SocialLink>
+  </ShareBar>
+);
 
 const FooterWrapper = styled(motion.div)`
   padding-top: 10rem;
@@ -187,18 +232,20 @@ const ShareBar = styled.div`
 `;
 
 const SocialLink = styled(NextLink)`
-  color: rgba(var(--textSecondary), 0.75);
-  transition: color 0.2s ease-in-out;
+  color: white;
+  transition: all 0.2s ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 8px;
   border-radius: 50%;
-  background: rgba(var(--primary), 0.1);
+  background: hsla(0, 0.00%, 100.00%, 0.87);
   backdrop-filter: blur(10px);
 
   &:hover {
-    color: rgb(var(--primary));
+    background: rgba(var(--primary), 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(241, 238, 238, 0.92);
   }
 `;
 
