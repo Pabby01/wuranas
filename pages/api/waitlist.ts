@@ -2,6 +2,10 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { MongoClient } from 'mongodb';
 import nodemailer from 'nodemailer';
 
+// Remove this line as it's not needed after installing @types/nodemailer
+// import '@types/nodemailer';
+import type { Transporter } from 'nodemailer';
+
 if (!process.env.MONGODB_URI) {
   throw new Error('Please add your MongoDB URI to .env.local');
 }

@@ -1,8 +1,9 @@
 import NextLink from 'next/link';
-import { FacebookIcon, LinkedinIcon, TwitterIcon } from 'react-share';
+import { motion } from 'framer-motion';
 import styled from 'styled-components';
 import Container from 'components/Container';
 import { media } from 'utils/media';
+import { IconBrandTwitter, IconBrandFacebook, IconBrandLinkedin, IconBrandDiscord } from '@tabler/icons-react';
 
 type SingleFooterListItem = { title: string; href: string };
 type FooterListItems = SingleFooterListItem[];
@@ -46,36 +47,81 @@ const footerItems: FooterItems = [
   },
 ];
 
+const fadeInUpVariants = {
+  initial: { y: 30, opacity: 0 },
+  animate: { y: 0, opacity: 1 },
+  transition: { duration: 0.5 }
+};
+
 export default function Footer() {
   return (
-    <FooterWrapper>
+    <FooterWrapper
+      as={motion.div}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
       <Container>
         <ListContainer>
-          {footerItems.map((singleItem) => (
-            <FooterList key={singleItem.title} {...singleItem} />
+          {footerItems.map((singleItem, index) => (
+            <motion.div
+              key={singleItem.title}
+              variants={fadeInUpVariants}
+              initial="initial"
+              whileInView="animate"
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+            >
+              <FooterList {...singleItem} />
+            </motion.div>
           ))}
         </ListContainer>
         <BottomBar>
           <ShareBar>
-            <NextLink href="https://www.twitter.com/my-saas-startup" passHref>
-              <a>
-                <TwitterIcon size={50} round={true} />
-              </a>
-            </NextLink>
+            <SocialLink 
+              href="https://twitter.com/my-saas-startup"
+              as={motion.a}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <IconBrandTwitter size={32} stroke={1.5} />
+            </SocialLink>
 
-            <NextLink href="https://www.facebook.com/my-saas-startup" passHref>
-              <a>
-                <FacebookIcon size={50} round={true} />
-              </a>
-            </NextLink>
+            <SocialLink 
+              href="https://facebook.com/my-saas-startup"
+              as={motion.a}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <IconBrandFacebook size={32} stroke={1.5} />
+            </SocialLink>
 
-            <NextLink href="https://www.linkedin.com/my-saas-startup" passHref>
-              <a>
-                <LinkedinIcon size={50} round={true} />
-              </a>
-            </NextLink>
+            <SocialLink 
+              href="https://linkedin.com/my-saas-startup"
+              as={motion.a}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <IconBrandLinkedin size={32} stroke={1.5} />
+            </SocialLink>
+
+            <SocialLink 
+              href="https://discord.com/my-saas-startup"
+              as={motion.a}
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <IconBrandDiscord size={32} stroke={1.5} />
+            </SocialLink>
           </ShareBar>
-          <Copyright>&copy; Copyright 2021 My Saas Startup</Copyright>
+          <Copyright
+            as={motion.p}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5 }}
+          >
+            &copy; Copyright 2025 Wurana
+          </Copyright>
         </BottomBar>
       </Container>
     </FooterWrapper>
@@ -96,52 +142,46 @@ function FooterList({ title, items }: SingleFooterList) {
 function ListItem({ title, href }: SingleFooterListItem) {
   return (
     <ListItemWrapper>
-      <NextLink href={href} passHref>
-        <a>{title}</a>
+      <NextLink href={href}>
+        <motion.span
+          whileHover={{ x: 5 }}
+          transition={{ type: "spring", stiffness: 300 }}
+        >
+          {title}
+        </motion.span>
       </NextLink>
     </ListItemWrapper>
   );
 }
 
-const FooterWrapper = styled.div`
+const FooterWrapper = styled(motion.div)`
   padding-top: 10rem;
   padding-bottom: 4rem;
-  background: rgb(var(--secondary));
+  background: rgba(var(--secondary), 0.95);
+  backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(var(--primary), 0.1);
   color: rgb(var(--textSecondary));
 `;
 
 const ListContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 3rem;
 `;
 
 const ListHeader = styled.p`
-  font-weight: bold;
-  font-size: 2.25rem;
+  font-weight: 700;
+  font-size: 2rem;
+  background: linear-gradient(90deg, rgb(var(--primary)), rgb(var(--secondary)));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 2.5rem;
 `;
 
 const ListWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 5rem;
-  margin-right: 5rem;
-
-  & > *:not(:first-child) {
-    margin-top: 1rem;
-  }
-
-  ${media('<=tablet')} {
-    flex: 0 40%;
-    margin-right: 1.5rem;
-  }
-
-  ${media('<=phone')} {
-    flex: 0 100%;
-    margin-right: 0rem;
-  }
+  gap: 1.5rem;
 `;
 
 const ListItemWrapper = styled.p`
@@ -150,27 +190,67 @@ const ListItemWrapper = styled.p`
   a {
     text-decoration: none;
     color: rgba(var(--textSecondary), 0.75);
+    transition: all 0.2s ease-in-out;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -4px;
+      left: 0;
+      background: linear-gradient(90deg, rgb(var(--primary)), transparent);
+      transition: width 0.3s ease;
+    }
+
+    &:hover {
+      color: rgb(var(--primary));
+      &:after {
+        width: 100%;
+      }
+    }
   }
 `;
 
 const ShareBar = styled.div`
-  & > *:not(:first-child) {
-    margin-left: 1rem;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+`;
+
+const SocialLink = styled(NextLink)`
+  color: rgba(var(--textSecondary), 0.75);
+  transition: color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  border-radius: 50%;
+  background: rgba(var(--primary), 0.1);
+  backdrop-filter: blur(10px);
+
+  &:hover {
+    color: rgb(var(--primary));
   }
 `;
 
 const Copyright = styled.p`
   font-size: 1.5rem;
+  opacity: 0.7;
   margin-top: 0.5rem;
 `;
 
 const BottomBar = styled.div`
   margin-top: 6rem;
+  padding-top: 3rem;
+  border-top: 1px solid rgba(var(--textSecondary), 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
 
   ${media('<=tablet')} {
     flex-direction: column;
+    gap: 2rem;
   }
 `;

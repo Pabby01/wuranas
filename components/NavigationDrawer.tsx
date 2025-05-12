@@ -47,7 +47,7 @@ function NavItemsList({ items }: NavigationDrawerProps) {
       {items.map((singleItem, idx) => {
         return (
           <NavItem key={idx}>
-            <NextLink href={singleItem.href}>{singleItem.title}</NextLink>
+            <NextLink href={singleItem.href} className="nav-link">{singleItem.title}</NextLink>
           </NavItem>
         )
       })}
@@ -111,7 +111,7 @@ const Wrapper = styled.div`
 `
 
 const NavItem = styled.li`
-  a {
+  .nav-link {
     font-size: 3rem;
     text-transform: uppercase;
     display: block;

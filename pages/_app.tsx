@@ -9,6 +9,7 @@ import Head from 'next/head';
 import { ColorModeScript } from 'nextjs-color-mode';
 import React, { PropsWithChildren } from 'react';
 import { TinaEditProvider } from 'tinacms/dist/edit-state';
+import { Toaster } from 'react-hot-toast';
 
 import Footer from 'components/Footer';
 import { GlobalStyle } from 'components/GlobalStyles';
@@ -16,6 +17,7 @@ import Navbar from 'components/Navbar';
 import NavigationDrawer from 'components/NavigationDrawer';
 import NewsletterModal from 'components/NewsletterModal';
 import WaveCta from 'components/WaveCta';
+import Layout from 'components/Layout';
 import { NewsletterModalContextProvider, useNewsletterModalContext } from 'contexts/newsletter-modal.context';
 import { NavItems } from 'types';
 
@@ -62,11 +64,17 @@ function MyApp({ Component, pageProps }: AppProps) {
               clientId={process.env.NEXT_PUBLIC_TINA_CLIENT_ID}
               {...pageProps}
             >
-              {(livePageProps: any) => <Component {...livePageProps} />}
+              {(livePageProps: any) => (
+                <Layout>
+                  <Component {...livePageProps} />
+                </Layout>
+              )}
             </TinaCMS>
           }
         >
-          <Component {...pageProps} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
         </TinaEditProvider>
         <WaveCta />
         <Footer />

@@ -1,25 +1,9 @@
-import NextLink from 'next/link';
-import { PropsWithChildren } from 'react';
-import styled from 'styled-components';
+import { css } from 'styled-components';
 
-type LinkProps = PropsWithChildren<{
-  href: string;
-  className?: string;
-}>;
-
-export default function Link({ href, children, className }: LinkProps) {
-  return (
-    <NextLink href={href} className={className}>
-      <StyledSpan>{children}</StyledSpan>
-    </NextLink>
-  );
-}
-
-const StyledSpan = styled.span`
+export const defaultLinkStyles = css`
   display: inline;
   width: fit-content;
   text-decoration: none;
-
   background: linear-gradient(rgb(var(--primary)), rgb(var(--primary)));
   background-position: 0% 100%;
   background-repeat: no-repeat;

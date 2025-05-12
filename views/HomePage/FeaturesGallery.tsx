@@ -44,7 +44,7 @@ export default function FeaturesGallery() {
 
     return (
       <ImageContainer key={singleTab.title} isActive={isActive}>
-        <NextImage src={singleTab.imageUrl} alt={singleTab.title} layout="fill" objectFit="contain" priority={isFirst} />
+        <NextImage src={singleTab.imageUrl} alt={singleTab.title} fill style={{ objectFit: 'contain' }} priority={isFirst} />
       </ImageContainer>
     );
   });

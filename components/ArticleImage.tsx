@@ -13,11 +13,11 @@ export default function ArticleImage({ src, caption, ...rest }: ArticleImageProp
       <ImageWrapper>
         <NextImage
           src={src}
-          alt={caption || 'Article Image'}
+          {...rest}
           placeholder="blur"
           blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mPkj6+vBwAC4AFuNSmtGAAAAABJRU5ErkJggg=="
-          layout="fill"
-          objectFit="cover"
+          fill
+          style={{ objectFit: 'cover' }}
           {...rest}
         />
       </ImageWrapper>
