@@ -1,9 +1,10 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { motion } from 'framer-motion';
 import NextImage from 'next/image';
 import NextLink from 'next/link';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
-import { media } from 'utils/media';
 import { useState } from 'react';
+import styled from 'styled-components';
+import { media } from 'utils/media';
 
 export interface ArticleCardProps {
   title: string;
@@ -21,10 +22,10 @@ export default function ArticleCard({ title, slug, imageUrl, description, catego
     const rect = card.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
+
     const rotateX = (y - centerY) / 20;
     const rotateY = (centerX - x) / 20;
 
@@ -43,19 +44,19 @@ export default function ArticleCard({ title, slug, imageUrl, description, catego
           rotateX: rotate.x,
           rotateY: rotate.y,
         }}
-        transition={{ type: "spring", stiffness: 100, damping: 10 }}
+        transition={{ type: 'spring', stiffness: 100, damping: 10 }}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}
         whileHover={{ scale: 1.02 }}
       >
         <GlassMorphicContainer>
           <ImageContainer>
-            <NextImage 
-              src={imageUrl} 
+            <NextImage
+              src={imageUrl}
               alt={title}
               width={400}
               height={250}
-              style={{ 
+              style={{
                 objectFit: 'cover',
                 borderRadius: '1.5rem 1.5rem 0 0',
               }}
@@ -105,9 +106,7 @@ const GlassMorphicContainer = styled.div`
 
   &:hover {
     border-color: rgba(var(--primary), 0.3);
-    box-shadow: 
-      0 0 30px rgba(var(--primary), 0.1),
-      inset 0 0 30px rgba(var(--primary), 0.05);
+    box-shadow: 0 0 30px rgba(var(--primary), 0.1), inset 0 0 30px rgba(var(--primary), 0.05);
   }
 `;
 
@@ -124,11 +123,7 @@ const Overlay = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 0%,
-    rgba(var(--cardBackground), 0.2) 100%
-  );
+  background: linear-gradient(180deg, transparent 0%, rgba(var(--cardBackground), 0.2) 100%);
   border-radius: 1.5rem 1.5rem 0 0;
 `;
 

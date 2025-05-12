@@ -9,7 +9,7 @@ export interface SingleArticle {
     title: string;
     description: string;
     date: string;
-    category: string;  // Changed from tags
+    category: string; // Changed from tags
     author: string;
     imageUrl: string;
     readTime?: string | null;

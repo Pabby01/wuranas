@@ -24,27 +24,18 @@ export default function Cta() {
           <OverTitle>Join the Revolution</OverTitle>
           <SectionTitle>Ready to Transform Your Artisan Business?</SectionTitle>
           <Description>
-            Whether you're a skilled artisan looking to expand your reach or a client seeking quality craftsmanship, 
-            Wurana connects you through the power of Solana blockchain. Join our waitlist to be among the first to experience 
-            secure, low-fee transactions and build your on-chain reputation.
+            Whether you're a skilled artisan looking to expand your reach or a client seeking quality craftsmanship, Wurana connects you
+            through the power of Solana blockchain. Join our waitlist to be among the first to experience secure, low-fee transactions and
+            build your on-chain reputation.
           </Description>
           <ButtonGroup>
             <NextLink href="/waitlist">
-              <PrimaryButton 
-                as={motion.a}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
+              <PrimaryButton as={motion.a} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                 Join Waitlist <span>→</span>
               </PrimaryButton>
             </NextLink>
             <NextLink href="/how-it-works">
-              <OutlinedButton 
-                as={motion.a}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transparent
-              >
+              <OutlinedButton as={motion.a} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transparent>
                 Learn More <span>→</span>
               </OutlinedButton>
             </NextLink>
@@ -68,11 +59,7 @@ export default function Cta() {
 
 const CtaWrapper = styled.div`
   position: relative;
-  background: linear-gradient(
-    135deg,
-    rgba(var(--secondary), 0.95) 0%,
-    rgba(var(--secondary), 0.85) 100%
-  );
+  background: linear-gradient(135deg, rgba(var(--secondary), 0.95) 0%, rgba(var(--secondary), 0.85) 100%);
   backdrop-filter: blur(10px);
   overflow: hidden;
 `;
@@ -84,11 +71,7 @@ const GlowBackground = styled.div`
   transform: translate(-50%, -50%);
   width: 150%;
   height: 150%;
-  background: radial-gradient(
-    circle,
-    rgba(var(--primary), 0.1) 0%,
-    rgba(var(--secondary), 0) 70%
-  );
+  background: radial-gradient(circle, rgba(var(--primary), 0.1) 0%, rgba(var(--secondary), 0) 70%);
   pointer-events: none;
 `;
 
@@ -123,12 +106,12 @@ const Stack = styled.div`
 `;
 
 const PrimaryButton = styled(Button)`
-  background: linear-gradient(90deg, rgb(var(--primary)), #FFC107);
+  background: linear-gradient(90deg, rgb(var(--primary)), #ffc107);
   color: rgb(var(--textSecondary));
   font-weight: 600;
   padding: 1.5rem 3rem;
   border-radius: 3rem;
-  
+
   span {
     margin-left: 1rem;
   }
@@ -139,7 +122,7 @@ const OutlinedButton = styled(Button)`
   color: rgb(var(--textSecondary));
   padding: 1.5rem 3rem;
   border-radius: 3rem;
-  
+
   &:hover {
     border-color: rgb(var(--primary));
   }
@@ -169,7 +152,7 @@ const StatItem = styled.div`
 const StatNumber = styled.div`
   font-size: 3.2rem;
   font-weight: bold;
-  background: linear-gradient(90deg, rgb(var(--primary)), #FFC107);
+  background: linear-gradient(90deg, rgb(var(--primary)), #ffc107);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 `;
@@ -183,12 +166,7 @@ const StatLabel = styled.div`
 const StatDivider = styled.div`
   width: 1px;
   height: 4rem;
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgba(var(--primary), 0.3),
-    transparent
-  );
+  background: linear-gradient(to bottom, transparent, rgba(var(--primary), 0.3), transparent);
 
   ${media('<=tablet')} {
     width: 50%;

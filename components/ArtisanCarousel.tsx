@@ -1,6 +1,6 @@
+import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import Image from 'next/image';
 import { media } from 'utils/media';
 
 type Artisan = {
@@ -53,13 +53,7 @@ export default function ArtisanCarousel() {
         {duplicatedArtisans.map((artisan, index) => (
           <ArtisanCard key={`${artisan.id}-${index}`}>
             <ImageWrapper>
-              <StyledImage
-                src={artisan.image}
-                alt={artisan.name}
-                width={200}
-                height={200}
-                priority
-              />
+              <StyledImage src={artisan.image} alt={artisan.name} width={200} height={200} priority />
             </ImageWrapper>
             <ArtisanName>{artisan.name}</ArtisanName>
             <SkillsList>

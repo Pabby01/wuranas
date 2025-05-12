@@ -1,6 +1,6 @@
+import { motion } from 'framer-motion';
 import NextLink from 'next/link';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import Button from 'components/Button';
 import ButtonGroup from 'components/ButtonGroup';
 import Container from 'components/Container';
@@ -41,21 +41,12 @@ export default function WaveCta() {
             <Subtitle>Join Wurana today and experience the future of artisan services on Solana</Subtitle>
             <CustomButtonGroup>
               <NextLink href="/waitlist">
-                <PrimaryButton
-                  as={motion.button}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                <PrimaryButton as={motion.button} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   Join Waitlist <span>→</span>
                 </PrimaryButton>
               </NextLink>
               <NextLink href="/marketplace">
-                <OutlinedButton
-                  as={motion.button}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transparent
-                >
+                <OutlinedButton as={motion.button} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} transparent>
                   Explore Marketplace <span>→</span>
                 </OutlinedButton>
               </NextLink>
@@ -72,7 +63,7 @@ const WaveContainer = styled.div`
   height: 25rem;
   margin-top: -10rem;
   pointer-events: none;
-  
+
   svg {
     width: 100%;
     height: 100%;
@@ -81,11 +72,7 @@ const WaveContainer = styled.div`
 `;
 
 const CtaWrapper = styled.div`
-  background: linear-gradient(135deg, 
-    rgb(var(--primary)) 0%, 
-    rgb(var(--primary)) 70%,
-    rgba(255, 193, 7, 0.8) 100%
-  );
+  background: linear-gradient(135deg, rgb(var(--primary)) 0%, rgb(var(--primary)) 70%, rgba(255, 193, 7, 0.8) 100%);
   margin-top: -1px; // Remove gap between wave and content
   padding-bottom: 12rem;
   position: relative;
@@ -98,11 +85,7 @@ const CtaWrapper = styled.div`
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(
-      circle at 50% 0%, 
-      rgba(var(--primary), 0.5) 0%,
-      transparent 70%
-    );
+    background: radial-gradient(circle at 50% 0%, rgba(var(--primary), 0.5) 0%, transparent 70%);
     pointer-events: none;
   }
 
@@ -122,7 +105,7 @@ const Title = styled(SectionTitle)`
   color: rgb(var(--textSecondary));
   font-size: 4.8rem;
   margin-bottom: 2rem;
-  
+
   ${media('<=tablet')} {
     font-size: 3.6rem;
   }
@@ -147,7 +130,7 @@ const PrimaryButton = styled(Button)`
   font-size: 1.8rem;
   font-weight: bold;
   backdrop-filter: blur(10px);
-  
+
   span {
     margin-left: 1rem;
   }
@@ -165,7 +148,7 @@ const OutlinedButton = styled(Button)`
   font-size: 1.8rem;
   font-weight: bold;
   backdrop-filter: blur(10px);
-  
+
   span {
     margin-left: 1rem;
   }
@@ -179,7 +162,7 @@ const OutlinedButton = styled(Button)`
 const CustomButtonGroup = styled(ButtonGroup)`
   justify-content: center;
   gap: 2rem;
-  
+
   ${media('<=tablet')} {
     flex-direction: column;
     align-items: stretch;

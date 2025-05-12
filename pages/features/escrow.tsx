@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import styled from 'styled-components';
 import Page from 'components/Page';
 import { media } from 'utils/media';
 
@@ -45,12 +45,12 @@ const FeatureCard = styled.div`
   background: var(--background-secondary);
   border-radius: 8px;
   text-align: center;
-  
+
   h3 {
     margin-bottom: 1rem;
     color: var(--text-primary);
   }
-  
+
   p {
     color: var(--text-secondary);
   }
@@ -58,21 +58,17 @@ const FeatureCard = styled.div`
 
 export default function EscrowFeaturePage() {
   return (
-    <Page 
-      title="Secure Escrow System" 
+    <Page
+      title="Secure Escrow System"
       description="Smart contracts automatically handle payment escrow, ensuring artisans get paid and clients receive quality work."
     >
       <Wrapper>
         <HeroSection>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <Title>Secure Escrow System</Title>
             <Description>
-              Our blockchain-powered escrow system ensures safe and transparent transactions 
-              between artisans and clients. Funds are held securely until job completion.
+              Our blockchain-powered escrow system ensures safe and transparent transactions between artisans and clients. Funds are held
+              securely until job completion.
             </Description>
           </motion.div>
         </HeroSection>

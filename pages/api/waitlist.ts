@@ -1,10 +1,6 @@
-import type { NextApiRequest, NextApiResponse } from 'next';
 import { MongoClient } from 'mongodb';
+import { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
-
-// Remove this line as it's not needed after installing @types/nodemailer
-// import '@types/nodemailer';
-import type { Transporter } from 'nodemailer';
 
 if (!process.env.MONGODB_URI) {
   throw new Error('Please add your MongoDB URI to .env.local');
@@ -54,7 +50,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       html: `
         <h2>Welcome to Wurana, ${name}!</h2>
         <p>Thank you for joining our waitlist. We're excited to have you on board!</p>
-        ${isBetaTester ? "<p>We've noted your interest in being a beta tester. We'll reach out with more details soon.</p>" : ""}
+        ${isBetaTester ? "<p>We've noted your interest in being a beta tester. We'll reach out with more details soon.</p>" : ''}
         <p>Stay tuned for updates about our launch!</p>
       `,
     });

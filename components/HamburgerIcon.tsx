@@ -1,4 +1,4 @@
-import Icon, { IconProps } from './Icon'
+import Icon, { IconProps } from './Icon';
 
 export function HamburgerIcon(props: IconProps) {
   return (
@@ -15,5 +15,5 @@ export function HamburgerIcon(props: IconProps) {
         <path d="M904 160H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0 624H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8zm0-312H120c-4.4 0-8 3.6-8 8v64c0 4.4 3.6 8 8 8h784c4.4 0 8-3.6 8-8v-64c0-4.4-3.6-8-8-8z"></path>
       </svg>
     </Icon>
-  )
+  );
 }

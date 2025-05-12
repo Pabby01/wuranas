@@ -38,23 +38,27 @@
 ## 🛠 Getting Started
 
 1. Clone the repository
+
 ```bash
 git clone https://github.com/yourusername/wurana.git
 cd wurana
 ```
 
 2. Install dependencies
+
 ```bash
 npm install
 ```
 
 3. Set up environment variables
+
 ```bash
 cp .env.example .env.local
 # Edit .env.local with your configuration
 ```
 
 4. Run development server
+
 ```bash
 npm run dev
 ```

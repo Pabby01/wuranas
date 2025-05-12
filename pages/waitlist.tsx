@@ -1,43 +1,31 @@
-import styled from 'styled-components';
 import { motion } from 'framer-motion';
-import Page from 'components/Page';
-import { media } from 'utils/media';
-import WaitlistForm from 'components/WaitlistForm';
 import Image from 'next/image';
+import styled from 'styled-components';
+import Page from 'components/Page';
+import WaitlistForm from 'components/WaitlistForm';
+import { media } from 'utils/media';
 
 export default function WaitlistPage() {
   return (
-    <Page title="Early Access - Wurana" description="Join the revolutionary artisan marketplace on Solana. Get early access, zero fees during beta, and exclusive NFT badges.">
+    <Page
+      title="Early Access - Wurana"
+      description="Join the revolutionary artisan marketplace on Solana. Get early access, zero fees during beta, and exclusive NFT badges."
+    >
       <WaitlistWrapper>
         <HeroBackground>
-          <Image 
-            src="/wura/art.jpg" 
-            alt="Artisan Marketplace"
-            fill
-            style={{ objectFit: 'cover' }}
-            priority
-          />
+          <Image src="/wura/art.jpg" alt="Artisan Marketplace" fill style={{ objectFit: 'cover' }} priority />
           <Overlay />
         </HeroBackground>
-        
+
         <ContentWrapper>
-          <HeaderContent
-            as={motion.div}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <motion.div
-              initial={{ scale: 0.95 }}
-              animate={{ scale: 1 }}
-              transition={{ duration: 0.5 }}
-            >
+          <HeaderContent as={motion.div} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <motion.div initial={{ scale: 0.95 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}>
               <GradientTitle>Early Access</GradientTitle>
             </motion.div>
             <SubtitleHighlight>Transform Your Artisan Business with Blockchain</SubtitleHighlight>
             <Description>
-              Be among the first to experience Wurana's revolutionary artisan marketplace on Solana. 
-              Get exclusive benefits and shape the future of skilled trades.
+              Be among the first to experience Wurana's revolutionary artisan marketplace on Solana. Get exclusive benefits and shape the
+              future of skilled trades.
             </Description>
           </HeaderContent>
 
@@ -45,10 +33,7 @@ export default function WaitlistPage() {
             <BenefitsList>
               <BenefitItem>
                 <BenefitIcon>
-                  <motion.span
-                    animate={{ rotate: 360 }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                  >
+                  <motion.span animate={{ rotate: 360 }} transition={{ duration: 2, repeat: Infinity, ease: 'linear' }}>
                     ⚡
                   </motion.span>
                 </BenefitIcon>
@@ -115,11 +100,7 @@ const Overlay = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    135deg,
-    rgba(var(--secondary), 0.95),
-    rgba(var(--secondary), 0.7)
-  );
+  background: linear-gradient(135deg, rgba(var(--secondary), 0.95), rgba(var(--secondary), 0.7));
   backdrop-filter: blur(5px);
 `;
 
@@ -146,17 +127,12 @@ const GradientTitle = styled.h1`
   font-weight: 800;
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  background: linear-gradient(
-    135deg, 
-    #FFC107 0%,
-    rgb(var(--primary)) 50%,
-    #FFC107 100%
-  );
+  background: linear-gradient(135deg, #ffc107 0%, rgb(var(--primary)) 50%, #ffc107 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 2px 15px rgba(var(--primary), 0.15);
   letter-spacing: -0.02em;
-  
+
   ${media('<=tablet')} {
     font-size: 4.8rem;
   }
@@ -167,7 +143,7 @@ const SubtitleHighlight = styled.h2`
   color: rgb(var(--textSecondary));
   margin-bottom: 1.5rem;
   font-weight: 600;
-  
+
   ${media('<=tablet')} {
     font-size: 2.2rem;
   }
@@ -230,7 +206,7 @@ const BenefitIcon = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 2.4rem;
-  
+
   &:hover {
     transform: scale(1.05);
     transition: transform 0.2s ease;
@@ -261,7 +237,7 @@ const FormWrapper = styled.div`
   padding: 3rem;
   background: rgba(var(--cardBackground), 0.3);
   border: 1px solid rgba(var(--primary), 0.1);
-  
+
   ${media('<=tablet')} {
     min-width: unset;
     padding: 2rem;

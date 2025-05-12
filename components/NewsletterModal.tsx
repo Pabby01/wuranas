@@ -38,7 +38,7 @@ export default function NewsletterModal({ onClose }: NewsletterModalProps) {
             <Container>
               <Card onSubmit={(event: React.FormEvent<HTMLFormElement>) => onSubmit(event, subscribe)}>
                 <CloseIconContainer>
-                  <CloseIcon onClick={onClose} />
+                  <CloseIcon icon="close" onClick={onClose} />
                 </CloseIconContainer>
                 {hasSignedUp && <MailSentState />}
                 {!hasSignedUp && (

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { ColorModeStyles, useColorModeValue, useColorSwitcher } from 'nextjs-color-mode';
 import styled from 'styled-components';
 

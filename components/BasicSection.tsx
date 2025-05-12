@@ -74,13 +74,13 @@ const ContentContainer = styled.div`
 `;
 
 type Props = Pick<BasicSectionProps, 'reversed'>;
-const BasicSectionWrapper = styled(Container)`
+const BasicSectionWrapper = styled(Container)<Props>`
   display: flex;
   align-items: center;
-  flex-direction: ${(p: Props) => (p.reversed ? 'row-reverse' : 'row')};
+  flex-direction: ${(p) => (p.reversed ? 'row-reverse' : 'row')};
 
   ${ImageContainer} {
-    margin: ${(p: Props) => (p.reversed ? '0 0 0 5rem' : '0 5rem 0 0')};
+    margin: ${(p) => (p.reversed ? '0 0 0 5rem' : '0 5rem 0 0')};
   }
 
   ${media('<=desktop')} {

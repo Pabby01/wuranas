@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { A11y, Autoplay } from 'swiper';
@@ -107,11 +108,7 @@ const Section = styled.section`
   display: flex;
   flex-direction: column;
   padding: 10rem 0;
-  background: linear-gradient(
-    180deg,
-    rgba(var(--secondary), 0.05) 0%,
-    rgba(var(--secondary), 0) 100%
-  );
+  background: linear-gradient(180deg, rgba(var(--secondary), 0.05) 0%, rgba(var(--secondary), 0) 100%);
 `;
 
 const SwiperContainer = styled(Container)`

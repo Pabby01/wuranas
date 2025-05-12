@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import matter from 'gray-matter';
 import * as fs from 'fs';
 import * as path from 'path';
@@ -14,10 +15,8 @@ export interface PostMeta {
 }
 
 export async function getAllPosts() {
-  const posts = await Promise.all(
-    getAllPostsSlugs().map(getSinglePost)
-  );
-  
+  const posts = await Promise.all(getAllPostsSlugs().map(getSinglePost));
+
   return posts.sort((a, b) => {
     return new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime();
   });
@@ -25,15 +24,16 @@ export async function getAllPosts() {
 
 export function getAllPostsSlugs() {
   const postsDirectory = getPostsDirectory();
-  
+
   if (!fs.existsSync(postsDirectory)) {
     console.warn('Posts directory not found. Creating...');
     fs.mkdirSync(postsDirectory, { recursive: true });
     return [];
   }
 
-  return fs.readdirSync(postsDirectory)
-    .filter(filename => filename.endsWith('.mdx'))
+  return fs
+    .readdirSync(postsDirectory)
+    .filter((filename) => filename.endsWith('.mdx'))
     .map(normalizePostName);
 }
 
@@ -43,7 +43,7 @@ function normalizePostName(postName: string) {
 
 export async function getSinglePost(slug: string): Promise<SingleArticle> {
   const filePath = path.join(getPostsDirectory(), `${slug}.mdx`);
-  
+
   if (!fs.existsSync(filePath)) {
     throw new Error(`Post not found: ${slug}`);
   }
@@ -60,7 +60,7 @@ export async function getSinglePost(slug: string): Promise<SingleArticle> {
     author: 'Team Wurana',
     imageUrl: '/blog/default-hero.jpg',
     readTime: null, // Changed from undefined to null for serialization
-    ...meta
+    ...meta,
   };
 
   // Ensure the blog images directory exists
@@ -71,7 +71,7 @@ export async function getSinglePost(slug: string): Promise<SingleArticle> {
 
   // Validate image path
   const publicImagePath = path.join(process.cwd(), 'public', defaultMeta.imageUrl.replace(/^\//, ''));
-  
+
   if (!fs.existsSync(publicImagePath)) {
     console.warn(`Warning: Image not found for post ${slug}: ${defaultMeta.imageUrl}`);
     defaultMeta.imageUrl = '/blog/default-hero.jpg';
@@ -83,7 +83,7 @@ export async function getSinglePost(slug: string): Promise<SingleArticle> {
     meta: {
       ...defaultMeta,
       date: defaultMeta.date.toString(), // Ensure date is string
-    } as SingleArticle['meta']
+    } as SingleArticle['meta'],
   };
 }
 
@@ -98,9 +98,7 @@ export async function getRecentPosts(count: number = 3): Promise<SingleArticle[]
 
 export async function getPostsByCategory(category: string): Promise<SingleArticle[]> {
   const posts = await getAllPosts();
-  return posts.filter(post => 
-    post.meta.category.toLowerCase() === category.toLowerCase()
-  );
+  return posts.filter((post) => post.meta.category.toLowerCase() === category.toLowerCase());
 }
 
 // Add utility function to calculate read time
@@ -110,4 +108,3 @@ export function calculateReadTime(content: string): string {
   const minutes = Math.ceil(words / wordsPerMinute);
   return `${minutes} min read`;
 }
-

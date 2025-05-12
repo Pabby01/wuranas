@@ -1,4 +1,4 @@
-import Highlight, { defaultProps, Language } from 'prism-react-renderer';
+import { Highlight, Language } from 'prism-react-renderer';
 import React from 'react';
 import styled from 'styled-components';
 import ClientOnly from 'components/ClientOnly';
@@ -39,7 +39,7 @@ export default function Code({
 
   return (
     <>
-      <Highlight {...defaultProps} theme={undefined} code={code} language={language}>
+      <Highlight theme={undefined} code={code} language={language}>
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <>
             <CodeWrapper className="code-wrapper" language={language}>

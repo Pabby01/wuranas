@@ -1,7 +1,7 @@
+import { motion } from 'framer-motion';
 import { InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import BasicSection from 'components/BasicSection';
 import Link from 'components/Link';
 import { EnvVars } from 'env';
@@ -29,26 +29,16 @@ export default function Homepage({ posts }: InferGetStaticPropsType<typeof getSt
         <WhiteBackgroundContainer>
           <Hero />
           <Partners />
-          <BasicSection 
-            imageUrl="/artisan-work.svg" 
-            title="Empower Your Craft with Blockchain" 
-            overTitle="Why Choose Wurana"
-          >
+          <BasicSection imageUrl="/wura/peju.jpg" title="Empower Your Craft with Blockchain" overTitle="Why Choose Wurana">
             <p>
-              Experience a new era of artisan services where blockchain meets craftsmanship. 
-              Our platform ensures secure payments, builds verifiable reputations, and connects 
-              skilled artisans with clients globally - all powered by Solana's lightning-fast network.
+              Experience a new era of artisan services where blockchain meets craftsmanship. Our platform ensures secure payments, builds
+              verifiable reputations, and connects skilled artisans with clients globally - all powered by Solana's lightning-fast network.
             </p>
           </BasicSection>
-          <BasicSection 
-            imageUrl="/marketplace-illustration.svg" 
-            title="Built for Modern Artisans" 
-            overTitle="Platform Features" 
-            reversed
-          >
+          <BasicSection imageUrl="/wura/smile.jpg" title="Built for Modern Artisans" overTitle="Platform Features" reversed>
             <p>
-              Take control of your artisan business with our Web3-powered features. From instant 
-              payments to reputation NFTs, we're revolutionizing how skilled trades operate in the digital age.
+              Take control of your artisan business with our Web3-powered features. From instant payments to reputation NFTs, we're
+              revolutionizing how skilled trades operate in the digital age.
             </p>
             <FeatureList>
               <FeatureItem>✨ Secure On-Chain Escrow</FeatureItem>
@@ -86,20 +76,12 @@ const GradientBackground = styled.div`
   pointer-events: none;
   z-index: -1;
   height: 100vh;
-  background: radial-gradient(
-    circle at 50% -20%, 
-    rgba(var(--primary), 0.1),
-    rgba(var(--background), 0.1) 70%
-  );
+  background: radial-gradient(circle at 50% -20%, rgba(var(--primary), 0.1), rgba(var(--background), 0.1) 70%);
 `;
 
 const DarkerBackgroundContainer = styled.div`
   position: relative;
-  background: linear-gradient(
-    180deg, 
-    rgb(var(--background)) 0%,
-    rgba(var(--background), 0.9) 100%
-  );
+  background: linear-gradient(180deg, rgb(var(--background)) 0%, rgba(var(--background), 0.9) 100%);
   backdrop-filter: blur(10px);
 
   &::before {
@@ -122,11 +104,7 @@ const DarkerBackgroundContainer = styled.div`
 `;
 
 const WhiteBackgroundContainer = styled.div`
-  background: linear-gradient(
-    180deg, 
-    rgb(var(--secondBackground)) 0%,
-    rgba(var(--secondBackground), 0.9) 100%
-  );
+  background: linear-gradient(180deg, rgb(var(--secondBackground)) 0%, rgba(var(--secondBackground), 0.9) 100%);
   backdrop-filter: blur(10px);
 
   & > :last-child {

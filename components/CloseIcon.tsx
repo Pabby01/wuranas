@@ -1,4 +1,4 @@
-import Icon, { IconProps } from './Icon'
+import Icon, { IconProps } from './Icon';
 
 export default function CloseIcon(props: IconProps) {
   return (
@@ -10,5 +10,5 @@ export default function CloseIcon(props: IconProps) {
         ></path>
       </svg>
     </Icon>
-  )
+  );
 }

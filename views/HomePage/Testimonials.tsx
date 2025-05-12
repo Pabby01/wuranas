@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+/* eslint-disable import/order */
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
@@ -18,14 +20,14 @@ interface TestimonialProps {
 
 const TESTIMONIALS: TestimonialProps[] = [
   {
-    content: 'Wurana\'s blockchain escrow made me feel secure. Instant payments and my NFT badges showcase my expertise!',
+    content: "Wurana's blockchain escrow made me feel secure. Instant payments and my NFT badges showcase my expertise!",
     author: {
       name: 'Yemi A.',
       location: 'Lagos',
       rating: 5,
       nftBadge: 'Master Craftsman',
       completedJobs: 124,
-      imageUrl: '/testimonials/yemi.jpg'
+      imageUrl: '/wura/tek.jpg',
     },
   },
   {
@@ -36,7 +38,7 @@ const TESTIMONIALS: TestimonialProps[] = [
       rating: 5,
       nftBadge: 'Expert Artisan',
       completedJobs: 89,
-      imageUrl: '/testimonials/funke.jpg'
+      imageUrl: '/wura/tito.jpg',
     },
   },
   {
@@ -47,7 +49,7 @@ const TESTIMONIALS: TestimonialProps[] = [
       rating: 5,
       nftBadge: 'Rising Star',
       completedJobs: 45,
-      imageUrl: '/testimonials/ahmed.jpg'
+      imageUrl: '/wura/tunde.jpg',
     },
   },
 ];
@@ -60,11 +62,7 @@ export default function Testimonials() {
           <OverTitle>Testimonials</OverTitle>
           <Title>Trusted by Artisans & Clients</Title>
           <Subtitle>Powered by Solana blockchain technology</Subtitle>
-          <ReviewButton 
-            href="https://g.page/r/YOUR_GOOGLE_REVIEW_ID/review" 
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <ReviewButton href="https://g.page/r/YOUR_GOOGLE_REVIEW_ID/review" target="_blank" rel="noopener noreferrer">
             Leave a Review on Google
           </ReviewButton>
         </HeaderSection>
@@ -90,10 +88,7 @@ export default function Testimonials() {
                 <Content>"{testimonial.content}"</Content>
                 <AuthorContainer>
                   <AuthorImage>
-                    <img 
-                      src={testimonial.author.imageUrl} 
-                      alt={testimonial.author.name} 
-                    />
+                    <img src={testimonial.author.imageUrl} alt={testimonial.author.name} />
                   </AuthorImage>
                   <AuthorContent>
                     <AuthorName>{testimonial.author.name}</AuthorName>
@@ -110,11 +105,7 @@ export default function Testimonials() {
 }
 
 const Wrapper = styled.section`
-  background: linear-gradient(
-    180deg,
-    rgba(var(--secondary), 0.05) 0%,
-    rgba(var(--secondary), 0) 100%
-  );
+  background: linear-gradient(180deg, rgba(var(--secondary), 0.05) 0%, rgba(var(--secondary), 0) 100%);
   padding: 12rem 0;
 `;
 
@@ -134,7 +125,7 @@ const OverTitle = styled.span`
 
 const Title = styled.h2`
   font-size: 4.2rem;
-  background: linear-gradient(135deg, rgb(var(--primary)), #FFC107);
+  background: linear-gradient(135deg, rgb(var(--primary)), #ffc107);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 2rem;
@@ -151,7 +142,7 @@ const Subtitle = styled.p`
 
 const ReviewButton = styled.a`
   display: inline-block;
-  background: linear-gradient(135deg, rgb(var(--primary)), #FFC107);
+  background: linear-gradient(135deg, rgb(var(--primary)), #ffc107);
   color: white;
   padding: 1.2rem 2.4rem;
   border-radius: 3rem;
@@ -223,7 +214,7 @@ const Stars = styled.div`
 `;
 
 const Star = styled.span`
-  color: #FFC107;
+  color: #ffc107;
   font-size: 2rem;
   margin: 0 0.2rem;
 `;

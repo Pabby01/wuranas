@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,json,md}\""
   },
   "dependencies": {
     "@accessible/drawer": "^3.0.2",
@@ -39,6 +40,7 @@
     "styled-components": "^6.1.8",
     "swiper": "^8.4.7",
     "tinacms": "^1.5.28",
+    "typescript": "^4.9.5",
     "use-clipboard-copy": "^0.2.0",
     "use-resize-observer": "^9.1.0"
   },
@@ -70,6 +72,7 @@
     "remark-gfm": "^4.0.0",
     "remark-sectionize": "^2.0.0",
     "remark-slug": "^7.0.1",
+    "remove-unused-imports": "^1.0.2",
     "typescript": "^5.3.3"
   }
 }

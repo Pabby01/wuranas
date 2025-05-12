@@ -1,20 +1,20 @@
+import fs from 'fs';
+import path from 'path';
+import { motion } from 'framer-motion';
+import matter from 'gray-matter';
 import { GetStaticPropsContext, InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
 import Image from 'next/image';
-import { formatDate } from 'utils/formatDate';
-import { media } from 'utils/media';
-import { getReadTime } from 'utils/readTime';
-import MetadataHead from 'views/SingleArticlePage/MetadataHead';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
+import { serialize } from 'next-mdx-remote/serialize';
 import React, { useEffect, useRef, useState } from 'react';
 import styled from 'styled-components';
 import Container from 'components/Container';
-import { motion } from 'framer-motion';
+import { formatDate } from 'utils/formatDate';
+import { media } from 'utils/media';
 import { getAllPosts } from 'utils/postsFetcher';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { serialize } from 'next-mdx-remote/serialize';
-import fs from 'fs';
-import path from 'path';
-import matter from 'gray-matter';
+import { getReadTime } from 'utils/readTime';
+import MetadataHead from 'views/SingleArticlePage/MetadataHead';
 
 type PostData = {
   title: string;
@@ -51,11 +51,7 @@ export default function SingleArticlePage(props: InferGetStaticPropsType<typeof 
       <MetadataHead {...data} />
       <ArticleContainer>
         <HeaderSection>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <Category>{data.category}</Category>
             <Title>{data.title}</Title>
             <MetaInfo>
@@ -70,14 +66,7 @@ export default function SingleArticlePage(props: InferGetStaticPropsType<typeof 
         </HeaderSection>
 
         <HeroImage>
-          <Image
-            src={data.imageUrl}
-            alt={data.title}
-            width={1200}
-            height={600}
-            priority
-            style={{ objectFit: 'cover' }}
-          />
+          <Image src={data.imageUrl} alt={data.title} width={1200} height={600} priority style={{ objectFit: 'cover' }} />
         </HeroImage>
 
         <ContentContainer ref={contentRef}>
@@ -104,13 +93,13 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
   const { slug } = params as { slug: string };
   const postsDirectory = path.join(process.cwd(), 'posts');
   const fullPath = path.join(postsDirectory, `${slug}.mdx`);
-  
+
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
   const mdxSource = await serialize(content);
 
   return {
-    props: { 
+    props: {
       data: {
         title: data.title,
         description: data.description,
@@ -119,7 +108,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext<{ slug: s
         author: data.author,
         imageUrl: data.imageUrl,
         content: mdxSource,
-      }
+      },
     },
   };
 }
@@ -149,7 +138,7 @@ const Title = styled.h1`
   font-weight: bold;
   line-height: 1.2;
   margin-bottom: 3rem;
-  background: linear-gradient(135deg, rgb(var(--primary)), #FFC107);
+  background: linear-gradient(135deg, rgb(var(--primary)), #ffc107);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 

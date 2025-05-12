@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { PropsWithChildren } from 'react';
 
@@ -28,10 +28,10 @@ export default function Layout({ children }: PropsWithChildren) {
         animate="animate"
         exit="exit"
         variants={pageVariants}
-        transition={{ 
-          type: "spring",
+        transition={{
+          type: 'spring',
           stiffness: 260,
-          damping: 20 
+          damping: 20,
         }}
       >
         {children}

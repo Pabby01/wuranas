@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import styled from 'styled-components';
 import AutofitGrid from 'components/AutofitGrid';
 import BasicCard from 'components/BasicCard';
 import Page from 'components/Page';
@@ -13,49 +13,49 @@ const FEATURES = [
     title: 'Secure Escrow System',
     description:
       'Smart contracts automatically handle payment escrow, ensuring artisans get paid and clients receive quality work. Built on Solana for instant, secure transactions.',
-    link: '/features/escrow'
+    link: '/features/escrow',
   },
   {
     imageUrl: '/grid-icons/reputation.svg',
     title: 'Reputation NFT Badges',
     description:
       'Earn unique NFT badges for completed jobs and positive reviews. Build an immutable portfolio that showcases your craftsmanship and reliability.',
-    link: '/features/reputation'
+    link: '/features/reputation',
   },
   {
     imageUrl: '/grid-icons/payments.svg',
     title: 'Low-Fee Payments',
     description:
-      'Take advantage of Solana\'s sub-cent transaction fees. Save significantly compared to traditional marketplace fees of 15-30%.',
-    link: '/features/payments'
+      "Take advantage of Solana's sub-cent transaction fees. Save significantly compared to traditional marketplace fees of 15-30%.",
+    link: '/features/payments',
   },
   {
     imageUrl: '/grid-icons/marketplace.svg',
     title: 'Global Marketplace',
     description:
       'Connect with clients worldwide. List your services, set your rates, and grow your artisan business beyond geographical boundaries.',
-    link: '/marketplace'
+    link: '/marketplace',
   },
   {
     imageUrl: '/grid-icons/verification.svg',
     title: 'Artisan Verification',
     description:
       'Get verified as a skilled artisan. Show clients your credentials, certifications, and work history - all secured on the blockchain.',
-    link: '/features/verification'
+    link: '/features/verification',
   },
   {
     imageUrl: '/grid-icons/messaging.svg',
     title: 'Secure Messaging',
     description:
       'Communicate directly with clients through our encrypted messaging system. Discuss projects, share files, and coordinate seamlessly.',
-    link: '/features/messaging'
-  }
+    link: '/features/messaging',
+  },
 ];
 
 export default function FeaturesPage() {
   return (
-    <Page 
-      title="Platform Features" 
+    <Page
+      title="Platform Features"
       description="Discover how Wurana's blockchain-powered features revolutionize the artisan marketplace experience."
     >
       <Wrapper>
@@ -63,20 +63,20 @@ export default function FeaturesPage() {
           <OverTitle>Built on Solana</OverTitle>
           <SectionTitle>Empowering Artisans with Web3</SectionTitle>
           <Description>
-            Experience a revolutionary marketplace that combines traditional craftsmanship with blockchain innovation. 
-            Our features are designed to provide security, transparency, and opportunity for skilled artisans.
+            Experience a revolutionary marketplace that combines traditional craftsmanship with blockchain innovation. Our features are
+            designed to provide security, transparency, and opportunity for skilled artisans.
           </Description>
         </HeaderContainer>
 
         <CustomAutofitGrid>
           {FEATURES.map((singleFeature, idx) => (
-            <FeatureCard 
-              key={singleFeature.title} 
+            <FeatureCard
+              key={singleFeature.title}
               as={motion.div}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
-              {...singleFeature} 
+              {...singleFeature}
             />
           ))}
         </CustomAutofitGrid>

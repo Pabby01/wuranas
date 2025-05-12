@@ -6,10 +6,17 @@ import Code from './Code';
 import Link from './Link';
 import Quote from './Quote';
 
-export default function RichText(props: { content: TinaMarkdownContent | TinaMarkdownContent[] }) {
+interface RichTextProps {
+  content: TinaMarkdownContent | TinaMarkdownContent[];
+}
+
+export default function RichText({ content }: RichTextProps) {
   return (
     <Container>
-      <TinaMarkdown content={props.content} components={components as Components<{}>} />
+      <TinaMarkdown 
+        content={content} 
+        components={components as Components<Record<string, unknown>>} 
+      />
     </Container>
   );
 }

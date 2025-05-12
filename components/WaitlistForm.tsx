@@ -1,15 +1,16 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import { motion } from 'framer-motion';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import Button from './Button';
 
 export default function WaitlistForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   return (
     <Form onSubmit={(e) => e.preventDefault()}>
       <FormTitle>Register for Early Access</FormTitle>
-      
+
       <InputGroup>
         <Label>Full Name</Label>
         <Input type="text" placeholder="Enter your full name" required />
@@ -35,18 +36,11 @@ export default function WaitlistForm() {
         <Input type="text" placeholder="e.g., Plumbing, Carpentry, etc." />
       </InputGroup>
 
-      <SubmitButton 
-        as={motion.button}
-        whileHover={{ scale: 1.02 }}
-        whileTap={{ scale: 0.98 }}
-        disabled={isSubmitting}
-      >
+      <SubmitButton as={motion.button} whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} disabled={isSubmitting}>
         {isSubmitting ? 'Joining...' : 'Join Waitlist'}
       </SubmitButton>
 
-      <Privacy>
-        By joining, you agree to our Terms of Service and Privacy Policy
-      </Privacy>
+      <Privacy>By joining, you agree to our Terms of Service and Privacy Policy</Privacy>
     </Form>
   );
 }
@@ -81,7 +75,7 @@ const Input = styled.input`
   background: rgba(var(--cardBackground), 0.5);
   color: rgb(var(--text));
   font-size: 1.6rem;
-  
+
   &:focus {
     border-color: rgb(var(--primary));
     outline: none;
@@ -95,7 +89,7 @@ const Select = styled.select`
   background: rgba(var(--cardBackground), 0.5);
   color: rgb(var(--text));
   font-size: 1.6rem;
-  
+
   &:focus {
     border-color: rgb(var(--primary));
     outline: none;
@@ -106,14 +100,14 @@ const SubmitButton = styled(Button)`
   margin-top: 1rem;
   width: 100%;
   padding: 1.5rem;
-  background: linear-gradient(90deg, rgb(var(--primary)), #FFC107);
+  background: linear-gradient(90deg, rgb(var(--primary)), #ffc107);
   color: rgb(var(--textSecondary));
   border: none;
   border-radius: 0.8rem;
   font-size: 1.6rem;
   font-weight: 600;
   cursor: pointer;
-  
+
   &:disabled {
     opacity: 0.7;
     cursor: not-allowed;

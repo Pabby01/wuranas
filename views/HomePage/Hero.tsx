@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable import/order */
 import NextLink from 'next/link';
 import Image from 'next/image';
 import styled from 'styled-components';
@@ -13,31 +15,18 @@ export default function Hero() {
     <>
       <HeroWrapper>
         <Contents>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <CustomOverTitle>
-              Book artisans in seconds—secure, on‑chain, and low‑fee on Solana.
-            </CustomOverTitle>
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+            <CustomOverTitle>Book artisans in seconds—secure, on‑chain, and low‑fee on Solana.</CustomOverTitle>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
             <Heading>
               Empower your projects with <GradientText>frictionless</GradientText> artisan services on <GradientText>Solana</GradientText>
             </Heading>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>
             <Description>
-              Wurana is a Solana‑powered decentralized marketplace connecting skilled artisans with clients—facilitating secure on‑chain escrow and NFT‑backed reputations for instant trust.
+              Wurana is a Solana‑powered decentralized marketplace connecting skilled artisans with clients—facilitating secure on‑chain
+              escrow and NFT‑backed reputations for instant trust.
               <HighlightBox>
                 <Highlight>✓ Sub-cent transaction fees</Highlight>
                 <Highlight>✓ NFT reputation system</Highlight>
@@ -45,27 +34,15 @@ export default function Hero() {
               </HighlightBox>
             </Description>
           </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.6 }}>
             <CustomButtonGroup>
               <StyledLink href="/waitlist">
-                <PrimaryButton
-                  as={motion.button}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                <PrimaryButton as={motion.button} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   Join the Waitlist <ButtonIcon>→</ButtonIcon>
                 </PrimaryButton>
               </StyledLink>
               <StyledLink href="#whitepaper">
-                <SecondaryButton
-                  as={motion.button}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
+                <SecondaryButton as={motion.button} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
                   Get Started <ButtonIcon>→</ButtonIcon>
                 </SecondaryButton>
               </StyledLink>
@@ -73,18 +50,8 @@ export default function Hero() {
           </motion.div>
         </Contents>
         <ImageContainer>
-          <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.8 }}
-          >
-            <StyledImage
-              src="/wura/art.jpg"
-              alt="Wurana-artisan"
-              width={500}
-              height={700}
-              priority
-            />
+          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.8 }}>
+            <StyledImage src="/wura/art.jpg" alt="Wurana-artisan" width={500} height={700} priority />
           </motion.div>
         </ImageContainer>
       </HeroWrapper>
@@ -118,7 +85,7 @@ const HeroWrapper = styled(Container)`
 `;
 
 const GradientText = styled.span`
-  background: linear-gradient(135deg, rgb(var(--primary)), #FFC107);
+  background: linear-gradient(135deg, rgb(var(--primary)), #ffc107);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
@@ -146,7 +113,7 @@ const StyledLink = styled(NextLink)`
 
 const PrimaryButton = styled.button`
   padding: 1.5rem 3rem;
-  background: linear-gradient(135deg, rgb(var(--primary)), #FFC107);
+  background: linear-gradient(135deg, rgb(var(--primary)), #ffc107);
   color: white;
   border: none;
   border-radius: 3rem;
@@ -239,16 +206,12 @@ const StyledImage = styled(Image)`
   max-width: 45rem;
   height: auto;
   border-radius: 3rem;
-  box-shadow: 
-    0 20px 40px rgba(var(--primary), 0.2),
-    0 0 100px rgba(var(--primary), 0.1);
+  box-shadow: 0 20px 40px rgba(var(--primary), 0.2), 0 0 100px rgba(var(--primary), 0.1);
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 
-      0 30px 60px rgba(var(--primary), 0.3),
-      0 0 120px rgba(var(--primary), 0.2);
+    box-shadow: 0 30px 60px rgba(var(--primary), 0.3), 0 0 120px rgba(var(--primary), 0.2);
   }
 
   ${media('<=desktop')} {

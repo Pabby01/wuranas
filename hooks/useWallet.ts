@@ -9,11 +9,11 @@ export const useWallet = () => {
       // Here we'll add actual Solana wallet connection logic
       const mockWalletInfo: WalletInfo = {
         address: '7xKX...9aB2',
-        balance: { sol: 1.234, usdc: 100.50 },
+        balance: { sol: 1.234, usdc: 100.5 },
         network: 'devnet',
-        isConnected: true
+        isConnected: true,
       };
-      
+
       setWalletInfo(mockWalletInfo);
       return true;
     } catch (error) {
@@ -30,6 +30,6 @@ export const useWallet = () => {
     walletInfo,
     connectWallet,
     disconnectWallet,
-    isConnected: !!walletInfo?.isConnected
+    isConnected: !!walletInfo?.isConnected,
   };
 };

@@ -1,9 +1,9 @@
-import NextLink from 'next/link';
+import { IconBrandDiscord, IconBrandFacebook, IconBrandLinkedin, IconBrandTwitter } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
+import NextLink from 'next/link';
 import styled from 'styled-components';
 import Container from 'components/Container';
 import { media } from 'utils/media';
-import { IconBrandTwitter, IconBrandFacebook, IconBrandLinkedin, IconBrandDiscord } from '@tabler/icons-react';
 
 type SingleFooterListItem = { title: string; href: string };
 type FooterListItems = SingleFooterListItem[];
@@ -50,17 +50,12 @@ const footerItems: FooterItems = [
 const fadeInUpVariants = {
   initial: { y: 30, opacity: 0 },
   animate: { y: 0, opacity: 1 },
-  transition: { duration: 0.5 }
+  transition: { duration: 0.5 },
 };
 
 export default function Footer() {
   return (
-    <FooterWrapper
-      as={motion.div}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-    >
+    <FooterWrapper as={motion.div} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
       <Container>
         <ListContainer>
           {footerItems.map((singleItem, index) => (
@@ -78,48 +73,23 @@ export default function Footer() {
         </ListContainer>
         <BottomBar>
           <ShareBar>
-            <SocialLink 
-              href="https://twitter.com/my-saas-startup"
-              as={motion.a}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <SocialLink href="https://twitter.com/my-saas-startup" as={motion.a} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <IconBrandTwitter size={32} stroke={1.5} />
             </SocialLink>
 
-            <SocialLink 
-              href="https://facebook.com/my-saas-startup"
-              as={motion.a}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <SocialLink href="https://facebook.com/my-saas-startup" as={motion.a} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <IconBrandFacebook size={32} stroke={1.5} />
             </SocialLink>
 
-            <SocialLink 
-              href="https://linkedin.com/my-saas-startup"
-              as={motion.a}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <SocialLink href="https://linkedin.com/my-saas-startup" as={motion.a} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <IconBrandLinkedin size={32} stroke={1.5} />
             </SocialLink>
 
-            <SocialLink 
-              href="https://discord.com/my-saas-startup"
-              as={motion.a}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-            >
+            <SocialLink href="https://discord.com/my-saas-startup" as={motion.a} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.95 }}>
               <IconBrandDiscord size={32} stroke={1.5} />
             </SocialLink>
           </ShareBar>
-          <Copyright
-            as={motion.p}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-          >
+          <Copyright as={motion.p} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }}>
             &copy; Copyright 2025 Wurana
           </Copyright>
         </BottomBar>
@@ -143,10 +113,7 @@ function ListItem({ title, href }: SingleFooterListItem) {
   return (
     <ListItemWrapper>
       <NextLink href={href}>
-        <motion.span
-          whileHover={{ x: 5 }}
-          transition={{ type: "spring", stiffness: 300 }}
-        >
+        <motion.span whileHover={{ x: 5 }} transition={{ type: 'spring', stiffness: 300 }}>
           {title}
         </motion.span>
       </NextLink>

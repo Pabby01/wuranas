@@ -22,13 +22,7 @@ const StyledSvg = styled.svg`
 
 export default function NewHeroIllustration() {
   return (
-    <StyledSvg
-      width="100%"
-      height="100%"
-      viewBox="0 0 800 600"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <StyledSvg width="100%" height="100%" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="400" cy="300" r="150" className="pulse" fill="rgba(147, 51, 234, 0.1)" />
       <circle cx="400" cy="300" r="100" className="pulse" fill="rgba(147, 51, 234, 0.2)" />
       <path
@@ -41,13 +35,7 @@ export default function NewHeroIllustration() {
         fill="rgb(147, 51, 234)"
         fillOpacity="0.4"
       />
-      <path
-        d="M375 275L425 325L375 375"
-        stroke="white"
-        strokeWidth="8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
+      <path d="M375 275L425 325L375 375" stroke="white" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
     </StyledSvg>
   );
 }

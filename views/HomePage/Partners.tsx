@@ -1,3 +1,4 @@
+/* eslint-disable import/order */
 import NextImage from 'next/image';
 import React from 'react';
 import styled from 'styled-components';
@@ -12,44 +13,44 @@ const PARTNERS = [
     name: 'Solana',
     logo: '/partners/solana_logo.png',
     link: 'https://solana.com',
-    description: 'High-performance blockchain platform'
+    description: 'High-performance blockchain platform',
   },
   {
     name: 'Phantom',
     logo: '/partners/phantom-logo.png',
     link: 'https://phantom.app',
-    description: 'Leading Solana wallet'
+    description: 'Leading Solana wallet',
   },
   {
     name: 'Metaplex',
     logo: '/partners/metaplex-logo.jpg',
     link: 'https://metaplex.com',
-    description: 'NFT infrastructure provider'
+    description: 'NFT infrastructure provider',
   },
   {
     name: 'Arweave',
     logo: '/partners/arweave.png',
     link: 'https://arweave.org',
-    description: 'Permanent storage solution'
+    description: 'Permanent storage solution',
   },
   {
     name: 'Serum',
     logo: '/partners/serum.jpg',
     link: 'https://projectserum.com',
-    description: 'Decentralized exchange protocol'
+    description: 'Decentralized exchange protocol',
   },
   {
     name: 'Magic Eden',
     logo: '/partners/Magic-Eden.webp',
     link: 'https://magiceden.io',
-    description: 'Leading NFT marketplace'
+    description: 'Leading NFT marketplace',
   },
-   {
+  {
     name: 'Solflare',
     logo: '/partners/solflare-logo.png',
     link: 'https://magiceden.io',
-    description: 'Fastest Solana Wallet'
-  }
+    description: 'Fastest Solana Wallet',
+  },
 ];
 
 export default function Partners() {
@@ -86,7 +87,7 @@ export default function Partners() {
             delay: 0,
             disableOnInteraction: false,
             pauseOnMouseEnter: true,
-            waitForTransition: false
+            waitForTransition: false,
           }}
           speed={3000}
           breakpoints={{
@@ -107,13 +108,7 @@ export default function Partners() {
                 whileTap={{ scale: 0.95 }}
               >
                 <ImageWrapper>
-                  <NextImage
-                    src={partner.logo}
-                    alt={partner.name}
-                    width={140}
-                    height={60}
-                    style={{ objectFit: 'contain' }}
-                  />
+                  <NextImage src={partner.logo} alt={partner.name} width={140} height={60} style={{ objectFit: 'contain' }} />
                 </ImageWrapper>
               </PartnerCard>
             </SwiperSlide>
@@ -158,7 +153,7 @@ const Title = styled.h2`
   font-weight: bold;
   line-height: 1.1;
   margin-bottom: 3rem;
-  background: linear-gradient(135deg, rgb(var(--primary)), #FFC107);
+  background: linear-gradient(135deg, rgb(var(--primary)), #ffc107);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 
@@ -200,7 +195,7 @@ const ImageWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  
+
   img {
     filter: grayscale(100%);
     opacity: 0.7;

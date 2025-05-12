@@ -1,10 +1,10 @@
+import { motion } from 'framer-motion';
 import { InferGetStaticPropsType } from 'next';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
 import ArticleCard from 'components/ArticleCard';
 import AutofitGrid from 'components/AutofitGrid';
-import Page from 'components/Page';
 import Container from 'components/Container';
+import Page from 'components/Page';
 import { media } from 'utils/media';
 import { getAllPosts } from 'utils/postsFetcher';
 
@@ -15,16 +15,11 @@ export default function BlogIndexPage({ posts }: InferGetStaticPropsType<typeof 
       description="Explore the latest insights about blockchain technology, artisan services, and the future of decentralized marketplaces."
     >
       <HeaderContainer>
-        <Header
-          as={motion.div}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
+        <Header as={motion.div} initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
           <Title>Latest Updates</Title>
           <Description>
-            Stay informed about the latest developments in blockchain technology, 
-            artisan services, and how Wurana is revolutionizing the marketplace.
+            Stay informed about the latest developments in blockchain technology, artisan services, and how Wurana is revolutionizing the
+            marketplace.
           </Description>
         </Header>
       </HeaderContainer>
@@ -54,11 +49,7 @@ export default function BlogIndexPage({ posts }: InferGetStaticPropsType<typeof 
 
 const HeaderContainer = styled.div`
   padding: 5rem 0;
-  background: linear-gradient(
-    180deg,
-    rgba(var(--secondary), 0.05) 0%,
-    rgba(var(--secondary), 0) 100%
-  );
+  background: linear-gradient(180deg, rgba(var(--secondary), 0.05) 0%, rgba(var(--secondary), 0) 100%);
 `;
 
 const Header = styled(Container)`
@@ -67,7 +58,7 @@ const Header = styled(Container)`
 
 const Title = styled.h1`
   font-size: 4.8rem;
-  background: linear-gradient(135deg, rgb(var(--primary)), #FFC107);
+  background: linear-gradient(135deg, rgb(var(--primary)), #ffc107);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin-bottom: 2rem;

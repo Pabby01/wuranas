@@ -26,7 +26,7 @@ const features = [
   {
     icon: <RiMoneyDollarCircleLine />,
     title: 'Sub-Cent Fees',
-    description: 'Enjoy Solana\'s < $0.01 transactions, compared to 10–20% marketplace cuts.',
+    description: "Enjoy Solana's < $0.01 transactions, compared to 10–20% marketplace cuts.",
   },
   {
     icon: <RiGlobalLine />,
@@ -43,9 +43,9 @@ function FeatureCard({ title, description, icon, delay = 0 }: FeatureCardProps) 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay }}
-      whileHover={{ 
+      whileHover={{
         scale: 1.05,
-        boxShadow: '0 20px 40px rgba(var(--primary), 0.15)'
+        boxShadow: '0 20px 40px rgba(var(--primary), 0.15)',
       }}
     >
       <IconWrapper>{icon}</IconWrapper>
@@ -60,20 +60,12 @@ export default function Features() {
   return (
     <Wrapper>
       <Container>
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
           <SectionTitle>Powered by Solana</SectionTitle>
         </motion.div>
         <Grid>
           {features.map((feature, idx) => (
-            <FeatureCard 
-              key={feature.title} 
-              {...feature} 
-              delay={idx * 0.2} 
-            />
+            <FeatureCard key={feature.title} {...feature} delay={idx * 0.2} />
           ))}
         </Grid>
       </Container>
@@ -94,11 +86,7 @@ const Wrapper = styled.section`
     left: 0;
     right: 0;
     height: 1px;
-    background: linear-gradient(90deg, 
-      transparent, 
-      rgba(var(--primary), 0.2), 
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, rgba(var(--primary), 0.2), transparent);
   }
 `;
 
@@ -128,17 +116,9 @@ const GlowingBorder = styled.div`
   inset: 0;
   border-radius: 2rem;
   padding: 2px;
-  background: linear-gradient(
-    45deg,
-    rgba(var(--primary), 0.5),
-    rgba(255, 193, 7, 0.5)
-  );
-  -webkit-mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
-  mask: 
-    linear-gradient(#fff 0 0) content-box, 
-    linear-gradient(#fff 0 0);
+  background: linear-gradient(45deg, rgba(var(--primary), 0.5), rgba(255, 193, 7, 0.5));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
 `;
@@ -147,7 +127,7 @@ const IconWrapper = styled.div`
   font-size: 4rem;
   margin-bottom: 2rem;
   color: rgb(var(--primary));
-  
+
   svg {
     filter: drop-shadow(0 0 8px rgba(var(--primary), 0.5));
   }
@@ -157,7 +137,7 @@ const SectionTitle = styled.h2`
   font-size: 3.6rem;
   text-align: center;
   margin-bottom: 6rem;
-  background: linear-gradient(135deg, rgb(var(--primary)), #FFC107);
+  background: linear-gradient(135deg, rgb(var(--primary)), #ffc107);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   position: relative;
@@ -170,11 +150,7 @@ const SectionTitle = styled.h2`
     transform: translateX(-50%);
     width: 150px;
     height: 2px;
-    background: linear-gradient(90deg, 
-      transparent, 
-      rgba(var(--primary), 0.5), 
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, rgba(var(--primary), 0.5), transparent);
   }
 `;
 
