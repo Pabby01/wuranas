@@ -8,8 +8,8 @@ export interface CollapseProps {
   onAnimationEnd?: () => void;
   duration?: number;
   easing?: string;
-  startingHeight?: number | string;
-  endingHeight?: number | string;
+  startingHeight?: number | 'auto';
+  endingHeight?: number | 'auto';
 }
 
 const Collapse = forwardRef<HTMLDivElement, PropsWithChildren<CollapseProps>>(

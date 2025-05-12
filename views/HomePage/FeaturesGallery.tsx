@@ -1,6 +1,7 @@
 import NextImage from 'next/image';
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import Collapse from 'components/Collapse';
 import Container from 'components/Container';
 import OverTitle from 'components/OverTitle';
@@ -10,28 +11,28 @@ import { media } from 'utils/media';
 
 const TABS = [
   {
-    title: 'Find relevant media contacts - multiline title',
+    title: 'Secure On-Chain Escrow',
     description:
-      '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ipsam ratione dicta quis cupiditate consequuntur laborum ducimus iusto velit.</p>',
-    imageUrl: '/demo-illustration-3.png',
-    baseColor: '249,82,120',
-    secondColor: '221,9,57',
+      '<p>Smart contracts automatically handle payment escrow, ensuring artisans get paid and clients receive quality work. Funds are locked until both parties confirm job completion.</p>',
+    imageUrl: '/escrow-illustration.png',
+    baseColor: '255,193,7',
+    secondColor: '128,0,128',
   },
   {
-    title: 'Another amazing feature',
+    title: 'Reputation NFT System',
     description:
-      '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ipsam ratione dicta quis cupiditate consequuntur laborum ducimus iusto velit.</p>',
-    imageUrl: '/demo-illustration-4.png',
-    baseColor: '57,148,224',
-    secondColor: '99,172,232',
+      '<p>Every completed job and 5-star review mints a unique NFT badge to your portfolio. Build an immutable reputation that showcases your craftsmanship and reliability.</p>',
+    imageUrl: '/nft-badges.png',
+    baseColor: '147,51,234',
+    secondColor: '79,70,229',
   },
   {
-    title: 'And yet... another truly fascinating feature',
+    title: 'Instant Solana Payments',
     description:
-      '<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam quidem ipsam ratione dicta quis cupiditate consequuntur laborum ducimus iusto velit.</p>',
-    imageUrl: '/demo-illustration-5.png',
-    baseColor: '88,193,132',
-    secondColor: '124,207,158',
+      '<p>Experience lightning-fast transactions with near-zero fees on Solana. Get paid instantly in SOL or USDC, with complete payment security and transparency.</p>',
+    imageUrl: '/solana-payments.png',
+    baseColor: '128,0,128',
+    secondColor: '255,193,7',
   },
 ];
 
@@ -43,8 +44,21 @@ export default function FeaturesGallery() {
     const isFirst = idx === 0;
 
     return (
-      <ImageContainer key={singleTab.title} isActive={isActive}>
-        <NextImage src={singleTab.imageUrl} alt={singleTab.title} fill style={{ objectFit: 'contain' }} priority={isFirst} />
+      <ImageContainer 
+        key={singleTab.title} 
+        isActive={isActive}
+        as={motion.div}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: isActive ? 1 : 0, scale: isActive ? 1 : 0.95 }}
+        transition={{ duration: 0.3 }}
+      >
+        <NextImage 
+          src={singleTab.imageUrl} 
+          alt={singleTab.title} 
+          fill 
+          style={{ objectFit: 'contain' }} 
+          priority={isFirst} 
+        />
       </ImageContainer>
     );
   });
@@ -92,6 +106,12 @@ const FeaturesGalleryWrapper = styled(Container)`
   align-items: center;
   flex-direction: column;
   justify-content: center;
+  padding: 10rem 0;
+  background: linear-gradient(
+    180deg,
+    rgba(var(--secondary), 0.1) 0%,
+    rgba(var(--secondary), 0) 100%
+  );
 `;
 
 const GalleryWrapper = styled.div`
@@ -153,19 +173,25 @@ const ImageContainer = styled.div<{ isActive: boolean }>`
   }
 `;
 
-const Tab = styled.div<{ isActive: boolean }>`
+const Tab = styled(motion.div)<{ isActive: boolean }>`
   display: flex;
   flex-direction: column;
-  padding: 2rem 1.5rem;
-  background: rgb(var(--cardBackground));
-  box-shadow: var(--shadow-md);
-  opacity: ${(p) => (p.isActive ? 1 : 0.6)};
+  padding: 2.5rem 2rem;
+  background: rgba(var(--cardBackground), 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: ${p => p.isActive ? 
+    '0 0 30px rgba(var(--primary), 0.2)' : 
+    'var(--shadow-md)'};
+  opacity: ${(p) => (p.isActive ? 1 : 0.7)};
   cursor: pointer;
-  border-radius: 0.6rem;
-  transition: opacity 0.2s;
+  border-radius: 1rem;
+  border: 1px solid rgba(var(--primary), ${p => p.isActive ? 0.2 : 0.05});
+  transition: all 0.2s ease-in-out;
 
-  font-size: 1.6rem;
-  font-weight: bold;
+  &:hover {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
 
   ${media('<=desktop')} {
     width: 100%;
@@ -185,9 +211,11 @@ const TabContent = styled.div`
   display: flex;
   flex-direction: column;
   font-weight: normal;
-  margin-top: 0.5rem;
-  font-size: 1.5rem;
+  margin-top: 1rem;
+  font-size: 1.6rem;
   padding-left: calc(5rem + 1.5rem);
+  line-height: 1.7;
+  color: rgb(var(--text), 0.8);
 
   ${media('<=tablet')} {
     padding-left: calc(4rem + 1.25rem);
