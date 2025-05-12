@@ -1,93 +1,160 @@
 import NextImage from 'next/image';
 import NextLink from 'next/link';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 import { media } from 'utils/media';
+import { useState } from 'react';
 
 export interface ArticleCardProps {
   title: string;
   slug: string;
   imageUrl: string;
   description: string;
+  category?: string;
 }
 
-export default function ArticleCard({ title, slug, imageUrl, description }: ArticleCardProps) {
+export default function ArticleCard({ title, slug, imageUrl, description, category = 'Web3' }: ArticleCardProps) {
+  const [rotate, setRotate] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const rotateX = (y - centerY) / 20;
+    const rotateY = (centerX - x) / 20;
+
+    setRotate({ x: rotateX, y: rotateY });
+  };
+
+  const handleMouseLeave = () => {
+    setRotate({ x: 0, y: 0 });
+  };
+
   return (
-    <NextLink href={'/blog/' + slug} passHref>
-      <ArticleCardWrapper className="article-card-wrapper">
-        <HoverEffectContainer>
+    <CardLink href={'/blog/' + slug} passHref>
+      <ArticleCardWrapper
+        as={motion.div}
+        animate={{
+          rotateX: rotate.x,
+          rotateY: rotate.y,
+        }}
+        transition={{ type: "spring", stiffness: 100, damping: 10 }}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        whileHover={{ scale: 1.02 }}
+      >
+        <GlassMorphicContainer>
           <ImageContainer>
-            <NextImage src={imageUrl} layout="fill" objectFit="cover" alt={title} />
+            <NextImage 
+              src={imageUrl} 
+              alt={title}
+              width={400}
+              height={250}
+              style={{ 
+                objectFit: 'cover',
+                borderRadius: '1.5rem 1.5rem 0 0',
+              }}
+              priority
+            />
+            <Overlay />
           </ImageContainer>
           <Content>
+            <CategoryBadge>{category}</CategoryBadge>
             <Title>{title}</Title>
             <Description>{description}</Description>
+            <ReadMore>
+              Read Article <ArrowIcon>→</ArrowIcon>
+            </ReadMore>
           </Content>
-        </HoverEffectContainer>
+        </GlassMorphicContainer>
       </ArticleCardWrapper>
-    </NextLink>
+    </CardLink>
   );
 }
 
-const ArticleCardWrapper = styled.a`
-  display: flex;
-  flex-direction: column;
-  height: 45rem;
-  max-width: 35rem;
-  overflow: hidden;
+const CardLink = styled(NextLink)`
   text-decoration: none;
-  border-radius: 0.6rem;
-  background: rgb(var(--cardBackground));
-  cursor: pointer;
-  color: rgb(var(--text));
+  color: inherit;
+  outline: none;
+  -webkit-tap-highlight-color: transparent;
 `;
 
-const HoverEffectContainer = styled.div`
-  transition: transform 0.3s;
-  backface-visibility: hidden;
-  will-change: transform;
+const ArticleCardWrapper = styled.div`
+  height: 45rem;
+  max-width: 35rem;
+  cursor: pointer;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+`;
+
+const GlassMorphicContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  position: relative;
+  background: rgba(var(--cardBackground), 0.7);
+  backdrop-filter: blur(10px);
+  border-radius: 2rem;
+  border: 1px solid rgba(var(--primary), 0.1);
+  overflow: hidden;
+  transition: all 0.3s ease;
 
   &:hover {
-    border-radius: 0.6rem;
-    overflow: hidden;
-    transform: scale(1.025);
+    border-color: rgba(var(--primary), 0.3);
+    box-shadow: 
+      0 0 30px rgba(var(--primary), 0.1),
+      inset 0 0 30px rgba(var(--primary), 0.05);
   }
 `;
 
 const ImageContainer = styled.div`
   position: relative;
-  height: 20rem;
+  height: 25rem;
+  width: 100%;
+  overflow: hidden;
+`;
 
-  &:before {
-    display: block;
-    content: '';
-    width: 100%;
-    padding-top: calc((9 / 16) * 100%);
-  }
-
-  & > div {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  ${media('<=desktop')} {
-    width: 100%;
-  }
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(var(--cardBackground), 0.2) 100%
+  );
+  border-radius: 1.5rem 1.5rem 0 0;
 `;
 
 const Content = styled.div`
-  padding: 0 2rem;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+`;
 
-  & > * {
-    margin-top: 2rem;
-  }
+const CategoryBadge = styled.span`
+  display: inline-block;
+  padding: 0.6rem 1.2rem;
+  background: rgba(var(--primary), 0.1);
+  color: rgb(var(--primary));
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 2rem;
+  align-self: flex-start;
 `;
 
 const Title = styled.h4`
-  font-size: 1.8rem;
-
+  font-size: 2rem;
+  font-weight: bold;
+  color: rgb(var(--text));
+  margin: 0;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -97,11 +164,33 @@ const Title = styled.h4`
 
 const Description = styled.p`
   font-size: 1.6rem;
-
+  color: rgba(var(--text), 0.8);
+  line-height: 1.5;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  opacity: 0.6;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 5;
+  -webkit-line-clamp: 3;
+`;
+
+const ReadMore = styled.span`
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: rgb(var(--primary));
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: auto;
+  transition: gap 0.3s ease;
+
+  &:hover {
+    gap: 1rem;
+  }
+`;
+
+const ArrowIcon = styled.span`
+  transition: transform 0.3s ease;
+  ${ArticleCardWrapper}:hover & {
+    transform: translateX(5px);
+  }
 `;
