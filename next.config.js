@@ -1,5 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
+/* eslint-disable import/order */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const CopyPlugin = require('copy-webpack-plugin');
-
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });

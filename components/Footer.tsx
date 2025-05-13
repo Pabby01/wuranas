@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable sort-imports */
 import { IconBrandDiscord, IconBrandFacebook, IconBrandGithub, IconBrandLinkedin, IconBrandInstagram, IconBrandTwitter } from '@tabler/icons-react';
 import { motion } from 'framer-motion';
@@ -143,14 +144,14 @@ const SocialLinks = () => (
     </SocialLink>
 
     <SocialLink 
-      href="https://twitter.com/wuranaapp" 
+      href="https://facebook.com/wuranaapp" 
       target="_blank"
       rel="noopener noreferrer"
       as={motion.a} 
       whileHover={{ scale: 1.1 }} 
       whileTap={{ scale: 0.95 }}
     >
-      <IconBrandTwitter size={24} stroke={2} color="black" />
+      <IconBrandFacebook size={24} stroke={2} color="black" />
     </SocialLink>
 
      <SocialLink 

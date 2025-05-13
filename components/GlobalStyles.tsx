@@ -93,11 +93,16 @@ html:focus-within {
 } 
 
 html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   touch-action: manipulation;
   text-rendering: optimizelegibility;
   text-size-adjust: 100%;
-  font-size: 62.5%;
 
   @media (max-width: 37.5em) {
     font-size: 50%;
@@ -114,12 +119,17 @@ html {
 
 /* Set core body defaults */
 body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+  color: rgb(var(--text));
+  background: rgb(var(--background));
+  overflow-x: hidden;
+  width: 100%;
   min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-family: var(--font);
-  color: rgb(var(--text));
-  background: rgb(var(--background));
   font-feature-settings: "kern";
 }
 
@@ -161,5 +171,13 @@ select {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
 
+#__next {
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
 }`;
