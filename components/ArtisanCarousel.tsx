@@ -13,10 +13,10 @@ type Artisan = {
 
 const artisans: Artisan[] = [
   { id: 1, name: 'John Smith', skills: ['Carpentry', 'Woodworking'], image: '/wura/art.jpg' },
-  { id: 2, name: 'Maria Garcia', skills: ['Painting', 'Murals'], image: '/wura/art.jpg' },
-  { id: 3, name: 'David Chen', skills: ['Electrical', 'Solar Installation'], image: '/wura/art.jpg' },
-  { id: 4, name: 'Sarah Johnson', skills: ['Plumbing', 'HVAC'], image: '/wura/art.jpg' },
-  { id: 5, name: 'Michael Brown', skills: ['Masonry', 'Tiling'], image: '/wura/art.jpg' },
+  { id: 2, name: 'Maria Garcia', skills: ['Painting', 'Murals'], image: '/wura/peju.jpg' },
+  { id: 3, name: 'David Chen', skills: ['Electrical', 'Solar Installation'], image: '/wura/tek.jpg' },
+  { id: 4, name: 'Sarah Johnson', skills: ['Plumbing', 'HVAC'], image: '/wura/tito.jpg' },
+  { id: 5, name: 'Michael Brown', skills: ['Masonry', 'Tiling'], image: '/wura/tunde.jpg' },
   { id: 6, name: 'Emma Wilson', skills: ['Interior Design', 'Decoration'], image: '/wura/art.jpg' },
   { id: 7, name: 'James Lee', skills: ['Landscaping', 'Garden Design'], image: '/wura/art.jpg' },
   { id: 8, name: 'Sofia Martinez', skills: ['Metalwork', 'Welding'], image: '/wura/art.jpg' },

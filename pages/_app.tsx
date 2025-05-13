@@ -18,6 +18,7 @@ import NavigationDrawer from 'components/NavigationDrawer';
 import NewsletterModal from 'components/NewsletterModal';
 import { ThemeProvider } from 'components/ThemeProvider';
 import WaveCta from 'components/WaveCta';
+import WhatsAppButton from 'components/WhatsAppButton';
 import { NewsletterModalContextProvider, useNewsletterModalContext } from 'contexts/newsletter-modal.context';
 import { NavItems } from 'types';
 
@@ -78,6 +79,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             </TinaEditProvider>
             <WaveCta />
             <Footer />
+            <WhatsAppButton />
           </Providers>
         </LoadingWrapper>
       </ThemeProvider>

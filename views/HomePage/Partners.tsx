@@ -11,7 +11,7 @@ import { motion } from 'framer-motion';
 const PARTNERS = [
   {
     name: 'Solana',
-    logo: '/partners/solana_logo.png',
+    logo: '/partners/solana.jpg',
     link: 'https://solana.com',
     description: 'High-performance blockchain platform',
   },
