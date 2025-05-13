@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { FaBars, FaBookOpen, FaCompass, FaMoon, FaQuestionCircle, FaSun, FaTimes, FaUserAlt } from 'react-icons/fa';
+import { FaBars, FaBookOpen, FaCompass, FaQuestionCircle,  FaTimes, FaUserAlt } from 'react-icons/fa';
 import styled from 'styled-components';
 import { useTheme } from 'components/ThemeProvider';
 import { media } from 'utils/media';
@@ -43,7 +43,7 @@ export default function Navbar({}: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [walletConnected, setWalletConnected] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { isDarkMode, toggleTheme } = useTheme();
+
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -98,7 +98,7 @@ export default function Navbar({}: NavbarProps) {
             </NavItems>
 
             <WalletSection>
-              <ThemeToggle onClick={toggleTheme}>{isDarkMode ? <FaSun size={24} /> : <FaMoon size={24} />}</ThemeToggle>
+              
               <ConnectButton whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} $isScrolled={isScrolled}>
                 {walletConnected ? (
                   <WalletInfo>
@@ -112,7 +112,7 @@ export default function Navbar({}: NavbarProps) {
           </DesktopNav>
 
           <MobileNav>
-            <ThemeToggle onClick={toggleTheme}>{isDarkMode ? <FaSun size={24} /> : <FaMoon size={24} />}</ThemeToggle>
+            
             <MenuButton onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
               {isMobileMenuOpen ? <FaTimes size={24} /> : <FaBars size={24} />}
             </MenuButton>

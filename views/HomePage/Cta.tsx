@@ -1,7 +1,9 @@
+/* eslint-disable import/order */
 import NextLink from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
+import CountUp from 'react-countup';
 import Button from 'components/Button';
 import ButtonGroup from 'components/ButtonGroup';
 import Container from 'components/Container';
@@ -42,12 +44,32 @@ export default function Cta() {
           </ButtonGroup>
           <Stats>
             <StatItem>
-              <StatNumber>1,200+</StatNumber>
+              <StatNumber>
+                <CountUp
+                  start={0}
+                  end={1200}
+                  duration={2}
+                  separator=","
+                  suffix="+"
+                  enableScrollSpy
+                  scrollSpyOnce
+                />
+              </StatNumber>
               <StatLabel>Artisans Waiting</StatLabel>
             </StatItem>
             <StatDivider />
             <StatItem>
-              <StatNumber>$50K+</StatNumber>
+              <StatNumber>
+                <CountUp
+                  start={0}
+                  end={50}
+                  duration={2}
+                  prefix="$"
+                  suffix="K+"
+                  enableScrollSpy
+                  scrollSpyOnce
+                />
+              </StatNumber>
               <StatLabel>Ready to Flow</StatLabel>
             </StatItem>
           </Stats>
@@ -155,6 +177,12 @@ const StatNumber = styled.div`
   background: linear-gradient(90deg, rgb(var(--primary)), #ffc107);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  
+  span {
+    background: inherit;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
 `;
 
 const StatLabel = styled.div`

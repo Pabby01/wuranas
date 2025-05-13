@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
@@ -72,19 +73,39 @@ const CarouselWrapper = styled.div`
   width: 100%;
   overflow: hidden;
   padding: 2rem 0;
-  background: rgb(var(--cardBackground));
-  margin: 4rem 0;
+  position: relative;
+
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 15rem;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  &::before {
+    left: 0;
+    background: linear-gradient(to right, rgb(var(--cardBackground)), transparent);
+  }
+
+  &::after {
+    right: 0;
+    background: linear-gradient(to left, rgb(var(--cardBackground)), transparent);
+  }
 
   ${media('<=desktop')} {
     padding: 1rem 0;
-    margin: 2rem 0;
   }
 `;
 
 const CarouselTrack = styled.div`
   display: flex;
-  animation: ${scroll} 30s linear infinite;
+  animation: ${scroll} 40s linear infinite;
   width: fit-content;
+  gap: 2rem;
 
   &:hover {
     animation-play-state: paused;
@@ -93,24 +114,24 @@ const CarouselTrack = styled.div`
 
 const ArtisanCard = styled.div`
   flex: 0 0 auto;
-  width: 250px;
-  margin: 0 1.5rem;
-  padding: 1.5rem;
-  background: rgb(var(--cardBackground));
-  border-radius: 1.5rem;
+  width: 280px;
+  padding: 2rem;
+  background: rgba(var(--cardBackground), 0.8);
+  backdrop-filter: blur(10px);
+  border-radius: 2rem;
+  border: 1px solid rgba(var(--primary), 0.1);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover {
-    animation: ${hover} 1.2s ease-in-out infinite;
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
     transform: translateY(-8px);
+    border-color: rgba(var(--primary), 0.3);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
   }
 
   ${media('<=tablet')} {
-    width: 200px;
-    margin: 0 1rem;
-    padding: 1rem;
+    width: 240px;
+    padding: 1.5rem;
   }
 `;
 

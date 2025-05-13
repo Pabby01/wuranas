@@ -48,7 +48,7 @@ const PARTNERS = [
   {
     name: 'Solflare',
     logo: '/partners/solflare-logo.png',
-    link: 'https://magiceden.io',
+    link: 'https://www.solflare.com/',
     description: 'Fastest Solana Wallet',
   },
 ];

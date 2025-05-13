@@ -8,52 +8,68 @@ import Button from 'components/Button';
 import ButtonGroup from 'components/ButtonGroup';
 import Container from 'components/Container';
 import OverTitle from 'components/OverTitle';
+import ArtisanCarousel from 'components/ArtisanCarousel';
 import { media } from 'utils/media';
 
 export default function Hero() {
   return (
     <>
       <HeroWrapper>
-        <Contents>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <CustomOverTitle>Book artisans in seconds—secure, on‑chain, and low‑fee on Solana.</CustomOverTitle>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
-            <Heading>
-              Empower your projects with <GradientText>frictionless</GradientText> artisan services on <GradientText>Solana</GradientText>
-            </Heading>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>
-            <Description>
-              Wurana is a Solana‑powered decentralized marketplace connecting skilled artisans with clients—facilitating secure on‑chain
-              escrow and NFT‑backed reputations for instant trust.
-              <HighlightBox>
-                <Highlight>✓ Sub-cent transaction fees</Highlight>
-                <Highlight>✓ NFT reputation system</Highlight>
-                <Highlight>✓ Secure escrow payments</Highlight>
-              </HighlightBox>
-            </Description>
-          </motion.div>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.6 }}>
-            <CustomButtonGroup>
-              <StyledLink href="/waitlist">
-                <PrimaryButton as={motion.button} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  Join the Waitlist <ButtonIcon>→</ButtonIcon>
-                </PrimaryButton>
-              </StyledLink>
-              <StyledLink href="#whitepaper">
-                <SecondaryButton as={motion.button} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                  Get Started <ButtonIcon>→</ButtonIcon>
-                </SecondaryButton>
-              </StyledLink>
-            </CustomButtonGroup>
-          </motion.div>
-        </Contents>
-        <ImageContainer>
-          <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.8 }}>
-            <StyledImage src="/wura/art.jpg" alt="Wurana-artisan" width={500} height={700} priority />
-          </motion.div>
-        </ImageContainer>
+        <MainContent>
+          <Contents>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+              <CustomOverTitle>Book artisans in seconds—secure, on‑chain, and low‑fee on Solana.</CustomOverTitle>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
+              <Heading>
+                Empower your projects with <GradientText>frictionless</GradientText> artisan services on <GradientText>Solana</GradientText>
+              </Heading>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>
+              <Description>
+                Wurana is a Solana‑powered decentralized marketplace connecting skilled artisans with clients—facilitating secure on‑chain
+                escrow and NFT‑backed reputations for instant trust.
+                <HighlightBox>
+                  <Highlight>✓ Sub-cent transaction fees</Highlight>
+                  <Highlight>✓ NFT reputation system</Highlight>
+                  <Highlight>✓ Secure escrow payments</Highlight>
+                </HighlightBox>
+              </Description>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.6 }}>
+              <CustomButtonGroup>
+                <StyledLink href="/waitlist">
+                  <PrimaryButton as={motion.button} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    Join the Waitlist <ButtonIcon>→</ButtonIcon>
+                  </PrimaryButton>
+                </StyledLink>
+                <StyledLink href="#whitepaper">
+                  <SecondaryButton as={motion.button} whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                    Get Started <ButtonIcon>→</ButtonIcon>
+                  </SecondaryButton>
+                </StyledLink>
+              </CustomButtonGroup>
+            </motion.div>
+          </Contents>
+          <ImageContainer>
+            <motion.div initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.8 }}>
+              <StyledImage src="/wura/art.jpg" alt="Wurana-artisan" width={500} height={700} priority />
+            </motion.div>
+          </ImageContainer>
+        </MainContent>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ duration: 0.5, delay: 0.8 }}
+        >
+          <CarouselSection>
+            <SectionTitle>
+              Featured Artisans <GradientSpan>on Wurana</GradientSpan>
+            </SectionTitle>
+            <ArtisanCarousel />
+          </CarouselSection>
+        </motion.div>
       </HeroWrapper>
     </>
   );
@@ -73,14 +89,26 @@ const CustomButtonGroup = styled(ButtonGroup)`
 
 const HeroWrapper = styled(Container)`
   display: flex;
-  padding-top: 7rem; // Reduced from 15rem
-  min-height: 100vh;
+  flex-direction: column;
+  padding-top: 7rem;
+  overflow: hidden;
+  position: relative;
+
+  ${media('<=desktop')} {
+    padding-top: 10rem;
+  }
+`;
+
+const MainContent = styled.div`
+  display: flex;
+  width: 100%;
+  margin-bottom: 4rem;
+  min-height: 80vh;
   align-items: center;
 
   ${media('<=desktop')} {
-    padding-top: 10rem; // Reduced from 12rem
     flex-direction: column;
-    align-items: center;
+    margin-bottom: 2rem;
   }
 `;
 
@@ -153,11 +181,11 @@ const ButtonIcon = styled.span`
   }
 `;
 
-// Update existing styled components
 const Contents = styled.div`
   flex: 1;
   max-width: 60rem;
   z-index: 10;
+  width: 100%;
 
   ${media('<=desktop')} {
     max-width: 100%;
@@ -217,4 +245,38 @@ const StyledImage = styled(Image)`
   ${media('<=desktop')} {
     max-width: 80%;
   }
+`;
+
+const CarouselSection = styled.div`
+  width: 100%;
+  padding: 4rem 0;
+  background: linear-gradient(
+    180deg, 
+    rgba(var(--cardBackground), 0) 0%,
+    rgba(var(--cardBackground), 0.8) 10%,
+    rgba(var(--cardBackground), 1) 100%
+  );
+  margin-top: 2rem;
+
+  ${media('<=desktop')} {
+    padding: 2rem 0;
+  }
+`;
+
+const SectionTitle = styled.h2`
+  font-size: 3.2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: rgb(var(--text));
+
+  ${media('<=desktop')} {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+  }
+`;
+
+const GradientSpan = styled.span`
+  background: linear-gradient(135deg, rgb(var(--primary)), #ffc107);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 `;
