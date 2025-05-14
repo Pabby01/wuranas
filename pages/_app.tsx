@@ -35,18 +35,33 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <Head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#730AA8" />
+        
+        {/* Primary Meta Tags */}
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        
+        {/* Fonts */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="" />
-        <link rel="icon" type="image/png" href="/favicon.png" />
-        {/* <link rel="alternate" type="application/rss+xml" href={EnvVars.URL + 'rss'} title="RSS 2.0" /> */}
-        {/* <script
-          dangerouslySetInnerHTML={{
-            __html: `window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-          ga('create', 'UA-117119829-1', 'auto');
-          ga('send', 'pageview');`,
-          }}
-        /> */}
-        {/* <script async src="https://www.google-analytics.com/analytics.js"></script> */}
+        
+        {/* SEO */}
+        <meta name="robots" content="index, follow" />
+        <meta name="googlebot" content="index, follow" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Wurana" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@Wurana01" />
+        
+        {/* Default SEO - will be overridden by page-specific SEO */}
+        <meta name="description" content="Wurana - The revolutionary artisan marketplace on Solana. Connect with skilled artisans, secure payments, and build your reputation through blockchain technology." />
+        <meta property="og:title" content="Wurana - Decentralized Artisan Marketplace on Solana" />
+        <meta property="og:description" content="Experience the future of artisan services with secure payments, NFT reputation system, and instant settlements on Solana blockchain." />
+        <meta property="og:image" content="https://wurana.com/og-image.jpg" />
       </Head>
       <ThemeProvider>
         <LoadingWrapper>
