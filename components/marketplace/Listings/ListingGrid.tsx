@@ -20,85 +20,84 @@ export default function ListingGrid({ filters, currentPage, itemsPerPage }: List
   const listings = [
     {
       id: '1',
-      title: 'Professional Web Developer',
-      description: 'Full-stack development with modern technologies',
-      price: 50,
-      rating: 4.8,
+      title: 'Master Carpenter',
+      description: 'Custom furniture and woodworking specialist with 10+ years experience',
+      price: 45,
+      rating: 4.9,
       location: 'Lagos, Nigeria',
-      image: '/wura/peju.jpg',
-      category: 'Development'
+      image: '/wura/tek.jpg',
+      category: 'Carpentry'
     },
     {
-      id: '1',
+      id: '2',
+      title: 'Professional Electrician',
+      description: 'Residential and commercial electrical installations and repairs',
+      price: 40,
+      rating: 4.7,
+      location: 'Abuja, Nigeria',
+      image: '/wura/peju.jpg',
+      category: 'Electrical'
+    },
+    {
+      id: '3',
       title: 'Skilled Fashion Designer',
-      description: 'Custom clothing and alterations',
-      price: 50,
+      description: 'Custom clothing and traditional attire alterations',
+      price: 35,
       rating: 4.8,
       location: 'Abeokuta, Nigeria',
-      image: '/wura/peju.jpg',
+      image: '/wura/tito.jpg',
       category: 'Fashion'
     },
     {
-      id: '1',
-      title: 'Professional Web Developer',
-      description: 'Full-stack development with modern technologies',
-      price: 50,
-      rating: 4.8,
-      location: 'Lagos, Nigeria',
-      image: '/wura/peju.jpg',
-      category: 'Development'
+      id: '4',
+      title: 'Expert Plumber',
+      description: 'Plumbing installations, repairs, and maintenance services',
+      price: 38,
+      rating: 4.6,
+      location: 'Port Harcourt, Nigeria',
+      image: '/wura/tunde.jpg',
+      category: 'Plumbing'
     },
     {
-      id: '1',
-      title: 'Professional Web Developer',
-      description: 'Full-stack development with modern technologies',
-      price: 50,
-      rating: 4.8,
-      location: 'Lagos, Nigeria',
-      image: '/wura/peju.jpg',
-      category: 'Development'
+      id: '5',
+      title: 'Professional Welder',
+      description: 'Metal fabrication and structural welding specialist',
+      price: 42,
+      rating: 4.9,
+      location: 'Kano, Nigeria',
+      image: '/wura/art.jpg',
+      category: 'Welding'
     },
     {
-      id: '1',
-      title: 'Professional Web Developer',
-      description: 'Full-stack development with modern technologies',
-      price: 150,
-      rating: 5.0,
-      location: 'Lagos, Nigeria',
+      id: '6',
+      title: 'Experienced Mason',
+      description: 'Bricklaying, concrete work, and stone masonry',
+      price: 40,
+      rating: 4.7,
+      location: 'Ibadan, Nigeria',
       image: '/wura/tek.jpg',
-      category: 'Development'
+      category: 'Masonry'
     },
     {
-      id: '1',
-      title: 'Professional Web Developer',
-      description: 'Full-stack development with modern technologies',
-      price: 50,
+      id: '7',
+      title: 'Auto Mechanic',
+      description: 'Vehicle repairs, maintenance, and diagnostics',
+      price: 45,
       rating: 4.8,
-      location: 'Lagos, Nigeria',
+      location: 'Enugu, Nigeria',
       image: '/wura/peju.jpg',
-      category: 'Development'
+      category: 'Automotive'
     },
     {
-      id: '1',
-      title: 'Professional Web Developer',
-      description: 'Full-stack development with modern technologies',
-      price: 50,
-      rating: 2.5,
-      location: 'Lagos, Nigeria',
-      image: '/wura/peju.jpg',
-      category: 'Development'
-    },
-    {
-      id: '1',
-      title: 'Professional Web Developer',
-      description: 'Full-stack development with modern technologies',
-      price: 50,
-      rating: 1.0,
-      location: 'Abuja, Nigeria',
-      image: '/wura/peju.jpg',
-      category: 'Development'
-    },
-    // Add more placeholder listings
+      id: '8',
+      title: 'HVAC Technician',
+      description: 'Air conditioning and heating system installations',
+      price: 48,
+      rating: 4.5,
+      location: 'Kaduna, Nigeria',
+      image: '/wura/tito.jpg',
+      category: 'HVAC'
+    }
   ];
 
   // Calculate pagination

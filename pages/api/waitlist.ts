@@ -71,13 +71,13 @@ const userEmailTemplate = (name: string) => `
         <a href="https://www.instagram.com/wurana_?igsh=MWFoZW01ZnZqeHBsMg==" style="display: inline-block; margin: 0 10px; text-decoration: none;">
           <img src="https://i.postimg.cc/7Y9h4Hbw/instagram-icon.jpg" alt="Instagram" width="32" height="32" style="vertical-align: middle;"/>
         </a>
-        <a href="https://www.facebook.com/wuranaapp" style="display: inline-block; margin: 0 10px; text-decoration: none;">
+        <a href="https://web.facebook.com/people/W%C3%B9r%C3%A0n%C3%A1/61576552340912/" style="display: inline-block; margin: 0 10px; text-decoration: none;">
           <img src="https://i.postimg.cc/59wjPqVH/Facebook-Logo.png" alt="Facebook" width="32" height="32" style="vertical-align: middle;"/>
         </a>
       </div>
 
       <div style="margin-top: 30px;">
-        <a href="https://chat.whatsapp.com/EjPQRMRAStlKR4JuWdS2Gzz" 
+        <a href="https://chat.whatsapp.com/EjPQRMRAStlKR4JuWdS2Gz" 
            style="display: inline-block; 
                   background: #25D366; 
                   color: white; 

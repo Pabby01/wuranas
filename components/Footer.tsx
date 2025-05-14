@@ -111,7 +111,7 @@ function ListItem({ title, href }: SingleFooterListItem) {
 const SocialLinks = () => (
   <ShareBar>
     <SocialLink 
-      href="https://twitter.com/wuranaapp" 
+      href="https://x.com/Wurana01?t=YZWL4SvdCjLzEnY83uNw7A&s=09" 
       target="_blank"
       rel="noopener noreferrer"
       as={motion.a} 
@@ -122,7 +122,7 @@ const SocialLinks = () => (
     </SocialLink>
 
     <SocialLink 
-      href="https://discord.gg/wurana" 
+      href="" 
       target="_blank"
       rel="noopener noreferrer"
       as={motion.a} 
@@ -133,7 +133,7 @@ const SocialLinks = () => (
     </SocialLink>
 
     <SocialLink 
-      href="https://github.com/wurana" 
+      href="https://github.com/Pabby01/wuranas" 
       target="_blank"
       rel="noopener noreferrer"
       as={motion.a} 
@@ -144,7 +144,7 @@ const SocialLinks = () => (
     </SocialLink>
 
     <SocialLink 
-      href="https://facebook.com/wuranaapp" 
+      href="https://web.facebook.com/people/W%C3%B9r%C3%A0n%C3%A1/61576552340912/" 
       target="_blank"
       rel="noopener noreferrer"
       as={motion.a} 
@@ -155,7 +155,7 @@ const SocialLinks = () => (
     </SocialLink>
 
      <SocialLink 
-      href="https://instagram.com/wuranaapp" 
+      href="https://www.instagram.com/wurana_?igsh=MWFoZW01ZnZqeHBsMg==" 
       target="_blank"
       rel="noopener noreferrer"
       as={motion.a} 
