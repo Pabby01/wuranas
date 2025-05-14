@@ -5,7 +5,7 @@ import { media } from 'utils/media';
 
 export default function WhatsAppButton() {
   const whatsappNumber = '+2349020250260'; // Replace with your WhatsApp number
-  const message = encodeURIComponent('Hello! I need help with Wurana.');
+  const message = encodeURIComponent('Hello! May i know More about WURANA?');
   
   return (
     <WhatsAppLink 
