@@ -40,7 +40,7 @@
 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourusername/wurana.git
+git clone https://github.com/Pabby01/wuranas
 cd wurana
 ```
 
